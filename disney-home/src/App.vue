@@ -1,14 +1,15 @@
 <script setup lang="ts">
+  import Home from './components/pages/Home.vue';
 </script>
 
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gray-50">
-    <h1 class="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  </div>
+  <Home />
 </template>
 
 <style>
-
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 </style>

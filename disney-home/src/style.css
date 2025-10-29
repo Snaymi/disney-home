@@ -1,3 +1,7 @@
+
+@tailwind utilities;
+@import "tailwindcss";
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -11,12 +15,26 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --header: #171717;
+  --bg-very-dark: #05060a;        /* fundo principal */
+  --bg-dark:      #0b1220;        /* fundo de seções/headers */
+  --surface:      #0f1724;        /* cartões / barras */
+  --card:         #111827;        /* cards de conteúdo */
+  --muted:        #94a3b8;        /* texto secundário */
+  --text:         #ffffff;        /* texto principal */
+  --accent:       #00b7ff;        /* azul/ciano de destaque */
+  --accent-2:     #00ffd5;        /* ciano claro secundário */
+  --cta:          #ffcb00;        /* botão/pré-visualização destaque (amarelo) */
+  --danger:       #ff4455;        /* alertas / erros */
+  --overlay:      rgba(0,0,0,0.6); /* sombreamento sobre thumbnails */
+  --glass:        rgba(255,255,255,0.04); /* placa translúcida */
+  --soft-border:  rgba(255,255,255,0.06); /* bordas sutis */
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  text-decoration: none;
 }
 a:hover {
   color: #535bf2;
@@ -24,8 +42,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -59,9 +75,8 @@ button:focus-visible {
 }
 
 #app {
-  max-width: 1280px;
+  max-width: 1350px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
