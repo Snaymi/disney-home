@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class=" hidden sm:block">
         <Profile />
     </div>
 </template>

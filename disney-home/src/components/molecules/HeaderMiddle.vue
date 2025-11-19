@@ -1,5 +1,5 @@
 <template>
-    <div  class="flex items-center">
+    <div  class="hidden sm:flex items-center">
         <NavBar />
     </div>
 </template>

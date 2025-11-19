@@ -1,7 +1,7 @@
 <template>
     <div>
         <nav>
-            <ul class="flex gap-x-7">
+            <ul class="flex gap-x-7 text-sm lg:text-lg">
                 <li class="flex gap-x-2">
                     <img src="../../assets/img/icon/house.svg" height="13" alt="">
                     <a href="#">Home</a>
