@@ -1,21 +1,3 @@
-<template>
-    <div class="header">
-        <Header />
-    </div>
-    <MoleculeBigCarousel :items="banners" :swiperOptions="{
-        slidesPerView: 1,
-        loop: true
-    }">
-        <template #slide="{ item }">
-            <img :src="item" class="w-full h-64 object-cover rounded-xl" alt="banner" />
-        </template>
-    </MoleculeBigCarousel>
-
-
-
-
-</template>
-
 <script setup>
 import Header from '../organisms/Header.vue';
 import MoleculeBigCarousel from '../molecules/MoleculeBigCarousel.vue';
@@ -31,6 +13,23 @@ const banners = [
 
 
 </script>
+
+<template>
+    <div class="header">
+        <Header />
+    </div>
+    <MoleculeBigCarousel :items="banners" :swiperOptions="{
+        slidesPerView: 1,
+        loop: true
+    }">
+        <template #slide="{ item }">
+            <img :src="item" class="w-full h-64 object-cover rounded-xl" alt="banner" />
+        </template>
+    </MoleculeBigCarousel>
+
+</template>
+
+
 
 <style lang="scss" scoped>
 .header {

@@ -1,7 +1,7 @@
 <template>
     <div class="header-content p-6">
         <div class="content flex justify-between  items-center ">
-            <div class="w-full flex justify-center sm:justify-around gap-x-15">
+            <div class="w-full flex justify-center sm:justify-start gap-x-15">
                 <HeaderLeft />
                 <HeaderMiddle />
             </div>
