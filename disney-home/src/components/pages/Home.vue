@@ -1,15 +1,20 @@
 <script setup>
 import Header from '../organisms/Header.vue';
 import MoleculeBigCarousel from '../molecules/MoleculeBigCarousel.vue';
-import cruellaBanner from "../../assets/img/cruella-banner.webp";
-import firstBanner from "../../assets/img/first-banner.webp"
-import lastBanner from "../../assets/img/second-banner.webp"
-const banners = [
-    cruellaBanner,
-    firstBanner,
-    lastBanner,
-];
+import {MoleculeMobileCarousel} from "../molecules"
+import { CruellaBanner,
+         FirstBanner,
+         LastBanner
+ } from '../../assets/img';
 
+const banners = [
+    CruellaBanner,
+    FirstBanner,
+    LastBanner,
+];
+const items = [
+
+]
 
 
 </script>
@@ -18,7 +23,7 @@ const banners = [
     <div class="header">
         <Header />
     </div>
-    <MoleculeBigCarousel :items="banners" :swiperOptions="{
+    <MoleculeBigCarousel class="hidden lg:block" :items="banners" :swiperOptions="{
         slidesPerView: 1,
         loop: true
     }">
@@ -26,6 +31,13 @@ const banners = [
             <img :src="item" class="w-full h-64 object-cover rounded-xl" alt="banner" />
         </template>
     </MoleculeBigCarousel>
+
+
+    <!-- <MoleculeMobileCarousel :items="icons" :swiperOptions="swiperConfig">
+        <template #slide="{ item }">
+            <img :src="item" class="w-20 h-20 object-cover rounded-full" />
+        </template>
+    </MoleculeMobileCarousel> -->
 
 </template>
 
