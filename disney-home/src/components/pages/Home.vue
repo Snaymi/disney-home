@@ -19,21 +19,31 @@ const banners = [
 const items = [
     MobileCartton,
     MobileSereia,
-    NemoBanner
+    NemoBanner,
+    MobileSereia
 ];
 
 const swiperConfig = {
-  slidesPerView: 1.2,     // mostra 1 inteiro e um pedaço do próximo
-  centeredSlides: true,   // centraliza o slide visível
-  spaceBetween: 20,
-  freeMode: false,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
+    slidesPerView: 1.2,
+    centeredSlides: true,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    }
 };
 
 
+
+const desktopConfig = {
+    slidesPerView: 1,
+    loop: true,
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    }
+};
 
 
 
@@ -43,10 +53,7 @@ const swiperConfig = {
     <div class="header">
         <Header />
     </div>
-    <MoleculeBigCarousel class="hidden sm:block" :items="banners" :swiperOptions="{
-        slidesPerView: 1,
-        loop: true
-    }">
+    <MoleculeBigCarousel class="hidden sm:block" :items="banners" :swiperOptions="desktopConfig">
         <template #slide="{ item }">
             <img :src="item" class="w-full h-64 object-cover rounded-xl" alt="banner" />
         </template>
