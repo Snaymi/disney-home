@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
-
-// CSS do Swiper
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, FreeMode } from "swiper/modules";
@@ -20,17 +18,39 @@ const props = defineProps({
 
 <template>
     <div class="w-full">
-        <Swiper :modules="[Pagination, FreeMode]" v-bind="swiperOptions" class="w-full h-40">
-            <SwiperSlide v-for="(item, index) in items" :key="index"
-                class="flex items-center justify-center bg-neutral-700 rounded-lg !h-40">
+        <Swiper
+            :modules="[Pagination, FreeMode]"
+            v-bind="swiperOptions"
+            class="w-full h-[200px]"
+        >
+            <!-- AGORA SIM: LOOP CORRETO -->
+            <SwiperSlide
+                v-for="(item, index) in items"
+                :key="index"
+                class="flex items-center justify-center rounded-xl overflow-hidden "
+            >
                 <slot name="slide" :item="item" :index="index">
-                    <!-- fallback -->
-                    <img :src="item" alt="mobile-slide" class="w-full h-full object-cover rounded-lg" />
+                    <img :src="item" class="w-full h-40 object-cover rounded-xl" />
                 </slot>
             </SwiperSlide>
 
-            <!-- Pagination -->
             <div class="swiper-pagination"></div>
         </Swiper>
     </div>
 </template>
+
+<style scoped>
+:deep(.swiper) {
+    padding-bottom: 20px;
+}
+:deep(.swiper-pagination-bullet) {
+   display:none;
+}
+:deep(.swiper-pagination-bullet-active) {
+    display: none;
+}
+:deep(.swiper-slide) {
+    border-radius: 14px;
+    overflow: hidden;
+}
+</style>

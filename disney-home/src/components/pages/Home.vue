@@ -1,11 +1,15 @@
 <script setup>
 import Header from '../organisms/Header.vue';
 import MoleculeBigCarousel from '../molecules/MoleculeBigCarousel.vue';
-import {MoleculeMobileCarousel} from "../molecules"
-import { CruellaBanner,
-         FirstBanner,
-         LastBanner
- } from '../../assets/img';
+import { MoleculeMobileCarousel } from "../molecules"
+import {
+    CruellaBanner,
+    FirstBanner,
+    LastBanner,
+    MobileSereia,
+    MobileCartton,
+    NemoBanner
+} from '../../assets/img';
 
 const banners = [
     CruellaBanner,
@@ -13,8 +17,24 @@ const banners = [
     LastBanner,
 ];
 const items = [
+    MobileCartton,
+    MobileSereia,
+    NemoBanner
+];
 
-]
+const swiperConfig = {
+  slidesPerView: 1.2,     // mostra 1 inteiro e um pedaço do próximo
+  centeredSlides: true,   // centraliza o slide visível
+  spaceBetween: 20,
+  freeMode: false,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+};
+
+
+
 
 
 </script>
@@ -23,7 +43,7 @@ const items = [
     <div class="header">
         <Header />
     </div>
-    <MoleculeBigCarousel class="hidden lg:block" :items="banners" :swiperOptions="{
+    <MoleculeBigCarousel class="hidden sm:block" :items="banners" :swiperOptions="{
         slidesPerView: 1,
         loop: true
     }">
@@ -33,11 +53,11 @@ const items = [
     </MoleculeBigCarousel>
 
 
-    <!-- <MoleculeMobileCarousel :items="icons" :swiperOptions="swiperConfig">
+    <MoleculeMobileCarousel class="sm:hidden" :items="items" :swiperOptions="swiperConfig">
         <template #slide="{ item }">
-            <img :src="item" class="w-20 h-20 object-cover rounded-full" />
+            <img :src="item" class="object-cover w-full h-full" />
         </template>
-    </MoleculeMobileCarousel> -->
+    </MoleculeMobileCarousel>
 
 </template>
 
