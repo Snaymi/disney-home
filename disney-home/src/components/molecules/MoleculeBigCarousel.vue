@@ -13,9 +13,15 @@ const props = defineProps({
 <template>
     <div class="w-full">
         <Swiper :modules="[Autoplay]" v-bind="swiperOptions" class="w-full h-64">
-            <SwiperSlide v-for="(item, index) in items" :key="index" class="!h-64">
+            <SwiperSlide v-for="(item, index) in items" :key="index">
                 <slot name="slide" :item="item" :index="index" />
             </SwiperSlide>
         </Swiper>
     </div>
 </template>
+
+<style>
+.swiper-slide {
+    background-color: transparent;
+}
+</style>

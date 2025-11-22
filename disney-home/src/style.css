@@ -16,7 +16,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --header: #171717;
+  --header: #202433;
+  --body: #202332;
   --bg-very-dark: #05060a;        /* fundo principal */
   --bg-dark:      #0b1220;        /* fundo de seções/headers */
   --surface:      #0f1724;        /* cartões / barras */

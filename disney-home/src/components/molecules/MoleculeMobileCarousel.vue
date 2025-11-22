@@ -5,6 +5,8 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay"; // IMPORTANTE
 import { Pagination, FreeMode, Autoplay } from "swiper/modules";
 
+
+
 const props = defineProps({
     items: Array,
     swiperOptions: Object,
@@ -24,7 +26,7 @@ const props = defineProps({
                 class="flex items-center justify-center rounded-xl overflow-hidden"
             >
                 <slot name="slide" :item="item" :index="index">
-                    <img :src="item" class="w-full h-40 object-cover rounded-xl" />
+                    <img :src="item" class="w-full h-40 rounded-xl" />
                 </slot>
             </SwiperSlide>
 

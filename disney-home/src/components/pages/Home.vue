@@ -1,77 +1,16 @@
+<!-- src/pages/HomePage.vue -->
 <script setup>
-import Header from '../organisms/Header.vue';
-import MoleculeBigCarousel from '../molecules/MoleculeBigCarousel.vue';
-import { MoleculeMobileCarousel } from "../molecules"
-import {
-    CruellaBanner,
-    FirstBanner,
-    LastBanner,
-    MobileSereia,
-    MobileCartton,
-    NemoBanner
-} from '../../assets/img';
-
-const banners = [
-    CruellaBanner,
-    FirstBanner,
-    LastBanner,
-];
-const items = [
-    MobileCartton,
-    MobileSereia,
-    NemoBanner,
-    MobileSereia
-];
-
-const swiperConfig = {
-    slidesPerView: 1.2,
-    centeredSlides: true,
-    spaceBetween: 20,
-    loop: true,
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    }
-};
-
-
-
-const desktopConfig = {
-    slidesPerView: 1,
-    loop: true,
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    }
-};
-
-
-
+import Header from "../organisms/Header.vue";
+import "../../style.css"; // variáveis globais
+import OrganismBody from "../organisms/OrganismBody.vue";
 </script>
 
 <template>
-    <div class="header">
+    <div class="bg-(--header)">
         <Header />
     </div>
-    <MoleculeBigCarousel class="hidden sm:block" :items="banners" :swiperOptions="desktopConfig">
-        <template #slide="{ item }">
-            <img :src="item" class="w-full h-64 object-cover rounded-xl" alt="banner" />
-        </template>
-    </MoleculeBigCarousel>
 
-
-    <MoleculeMobileCarousel class="sm:hidden" :items="items" :swiperOptions="swiperConfig">
-        <template #slide="{ item }">
-            <img :src="item" class="object-cover w-full h-full" />
-        </template>
-    </MoleculeMobileCarousel>
-
+    <OrganismBody />
 </template>
 
-
-
-<style lang="scss" scoped>
-.header {
-    background-color: var(--header);
-}
-</style>
+<style scoped></style>
