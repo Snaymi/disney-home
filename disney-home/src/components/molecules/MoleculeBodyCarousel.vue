@@ -29,3 +29,9 @@ const props = defineProps({
         </Swiper>
     </div>
 </template>
+
+<style scoped>
+.swiper-slide {
+  width: 120px !important;
+}
+</style>

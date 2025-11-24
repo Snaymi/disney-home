@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/autoplay"; // IMPORTANTE
+
 import { Pagination, FreeMode, Autoplay } from "swiper/modules";
 
 

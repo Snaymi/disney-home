@@ -18,7 +18,9 @@ import {
     Disney,
     Simpsons,
     Side,
-    Moon
+    Moon,
+    Nate,
+    Anotomy
 } from "../../assets/img";
 
 // Dados do componente
@@ -44,7 +46,9 @@ const channels = [
 const recomendation =[
     Simpsons,
     Side,
-    Moon
+    Moon,
+    Nate,
+    Anotomy
 ]
 const swiperConfig = {
     slidesPerView: 1.2,
@@ -81,7 +85,7 @@ const desktopConfig = {
             <MoleculeChannel class="flex flex-wrap justify-center gap-2" :items="channels" />
         </div>
 
-        <div class="recomendations">
+        <div class="recomendations p-2">
             <MoleculeBodyCarousel :items="recomendation" :swiperOptions="swiperConfig">
                 <template #slide="{ item }">
                     <div class="w-[120px] h-[180px] sm:w-[290px] sm:h-[165px]">

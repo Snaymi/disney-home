@@ -13,6 +13,8 @@ import Disney from "./disney.webp"
 import Simpsons from "./simpsons.webp"
 import Side from "./side.webp"
 import Moon from "./moon.webp"
+import Nate from "./nate.webp"
+import Anotomy from "./anatomy.webp"
 
 
 export {
@@ -30,5 +32,7 @@ export {
     Disney,
     Simpsons,
     Side,
-    Moon
+    Moon,
+    Nate,
+    Anotomy
 }
