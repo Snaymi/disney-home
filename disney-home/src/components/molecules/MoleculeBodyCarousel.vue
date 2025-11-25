@@ -2,8 +2,10 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/scrollbar";
+import "swiper/css/autoplay"
 
-import { Scrollbar } from "swiper/modules";
+
+import { Scrollbar, Autoplay, FreeMode } from "swiper/modules";
 
 const props = defineProps({
     items: { type: Array, required: true },
@@ -13,25 +15,19 @@ const props = defineProps({
 
 <template>
     <div class="w-full">
-        <Swiper :modules="[Scrollbar]" v-bind="swiperOptions" class="w-full h-full">
+        <Swiper :modules="[Scrollbar, Autoplay, FreeMode]" v-bind="swiperOptions" class="w-full h-full">
             <SwiperSlide v-for="(item, index) in items" :key="index"
-                class="!flex !justify-center !items-center bg-gray-800 text-white">
+                class="!flex !justify-center !items-center bg-gray-800 text-white !w-[120px] sm:!w-[290px]">
                 <slot name="slide" :item="item" :index="index">
                     <div class="w-full h-full flex items-center justify-center text-lg font-semibold">
                         {{ item }}
                     </div>
                 </slot>
             </SwiperSlide>
-
-            <template #container-end>
-                <div class="swiper-scrollbar"></div>
-            </template>
         </Swiper>
     </div>
 </template>
 
 <style scoped>
-.swiper-slide {
-  width: 120px !important;
-}
+
 </style>

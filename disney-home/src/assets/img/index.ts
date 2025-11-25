@@ -15,7 +15,16 @@ import Side from "./side.webp"
 import Moon from "./moon.webp"
 import Nate from "./nate.webp"
 import Anotomy from "./anatomy.webp"
-
+import Baymax from "./baymax.webp"
+import Ice from "./ice.webp"
+import Red from "./red.webp"
+import Allfy from "./allfy.webp"
+import Olivia from "./olivia.webp"
+import Chip from "./chip.webp"
+import Msmarvel from "./msmarvel.webp"
+import Kenobi from "./kenobi.webp"
+import Duck from "./duck.webp"
+import Sneak from "./sneak.webp"
 
 export {
     CruellaBanner,
@@ -34,5 +43,15 @@ export {
     Side,
     Moon,
     Nate,
-    Anotomy
+    Anotomy,
+    Baymax,
+    Ice,
+    Red,
+    Allfy,
+    Olivia,
+    Chip,
+    Msmarvel,
+    Duck,
+    Kenobi,
+    Sneak
 }

@@ -20,7 +20,17 @@ import {
     Side,
     Moon,
     Nate,
-    Anotomy
+    Anotomy,
+    Baymax,
+    Ice,
+    Red,
+    Allfy,
+    Olivia,
+    Chip,
+    Msmarvel,
+    Duck,
+    Kenobi,
+    Sneak
 } from "../../assets/img";
 
 // Dados do componente
@@ -43,12 +53,22 @@ const channels = [
     StarWars,
     Disney
 ];
-const recomendation =[
+const recomendation = [
     Simpsons,
     Side,
     Moon,
     Nate,
-    Anotomy
+    Anotomy,
+    Baymax
+]
+const newPrograms = [
+    Nate,
+    Anotomy,
+    Baymax,
+    Ice,
+    Red,
+    Allfy,
+    Olivia
 ]
 const swiperConfig = {
     slidesPerView: 1.2,
@@ -57,16 +77,31 @@ const swiperConfig = {
     loop: true,
     autoplay: { delay: 3000, disableOnInteraction: false }
 };
+const swiperBodyConfig = {
+    slidesPerView: "auto",
+    centeredSlides: true,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: { delay: 3000, disableOnInteraction: false }
+}
 
 const desktopConfig = {
     slidesPerView: 1,
     loop: true,
     autoplay: { delay: 3000, disableOnInteraction: false }
 };
+const Próximos = [
+    Chip,
+    Msmarvel,
+    Duck,
+    Kenobi,
+    Sneak
+]
+
 </script>
 
 <template>
-    <div class="bg-(--body) flex flex-col gap-y-3 sm:gap-y-10">
+    <div class="bg-(--body) flex flex-col gap-y-2 sm:gap-y-3 max-w-[1350px]">
         <div class="carousel">
             <MoleculeBigCarousel class="hidden sm:block" :items="banners" :swiperOptions="desktopConfig">
                 <template #slide="{ item }">
@@ -85,13 +120,44 @@ const desktopConfig = {
             <MoleculeChannel class="flex flex-wrap justify-center gap-2" :items="channels" />
         </div>
 
-        <div class="recomendations p-2">
-            <MoleculeBodyCarousel :items="recomendation" :swiperOptions="swiperConfig">
+        <div class="recomendations pl-4 pr-4 mt-5">
+            <h2 class="text-start sm:mb-[30px]">
+                Recomendações para você
+            </h2>
+            <MoleculeBodyCarousel :items="recomendation" :swiperOptions="swiperBodyConfig">
                 <template #slide="{ item }">
                     <div class="w-[120px] h-[180px] sm:w-[290px] sm:h-[165px]">
                         <img :src="item" class="w-full h-full object-cover rounded-xl" />
                     </div>
-                       
+
+                </template>
+            </MoleculeBodyCarousel>
+
+        </div>
+        <div class="new pl-4 pr-4">
+            <h2 class="text-start sm:mb-[40px]">
+                Novos
+            </h2>
+            <MoleculeBodyCarousel :items="newPrograms" :swiperOptions="swiperBodyConfig">
+                <template #slide="{ item }">
+                    <div class="w-[120px] h-[180px] sm:w-[290px] sm:h-[165px]">
+                        <img :src="item" class="w-full h-full object-cover rounded-xl" />
+                    </div>
+
+                </template>
+            </MoleculeBodyCarousel>
+
+        </div>
+        <div class="new pl-4 pr-4">
+            <h2 class="text-start sm:mb-[40px]">
+                Novos
+            </h2>
+            <MoleculeBodyCarousel :items="comedy" :swiperOptions="swiperBodyConfig">
+                <template #slide="{ item }">
+                    <div class="w-[120px] h-[180px] sm:w-[290px] sm:h-[165px]">
+                        <img :src="item" class="w-full h-full object-cover rounded-xl" />
+                    </div>
+
                 </template>
             </MoleculeBodyCarousel>
 
@@ -99,4 +165,9 @@ const desktopConfig = {
     </div>
 </template>
 
-<style></style>
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+</style>
