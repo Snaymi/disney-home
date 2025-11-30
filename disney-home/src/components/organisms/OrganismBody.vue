@@ -30,7 +30,16 @@ import {
     Msmarvel,
     Duck,
     Kenobi,
-    Sneak
+    Sneak,
+    Cruella,
+    Encanto,
+    Icev,
+    Zack,
+    Run,
+    John,
+    Iron,
+    This,
+    Faye
 } from "../../assets/img";
 
 // Dados do componente
@@ -97,6 +106,22 @@ const proximos = [
     Kenobi,
     Sneak
 ]
+const comedy = [
+    Nate,
+    Cruella,
+    Encanto,
+    Icev,
+    Zack,
+    Chip
+]
+const action = [
+    Zack,
+    Run,
+    John,
+    Iron,
+    This,
+    Faye
+]
 
 </script>
 
@@ -116,7 +141,7 @@ const proximos = [
             </MoleculeMobileCarousel>
         </div>
 
-        <div class="channels">
+        <div class="channels lg:mt-[65px]">
             <MoleculeChannel class="flex flex-wrap justify-center gap-2" :items="channels" />
         </div>
 
@@ -154,7 +179,35 @@ const proximos = [
             </h2>
             <MoleculeBodyCarousel :items="proximos" :swiperOptions="swiperBodyConfig">
                 <template #slide="{ item }">
-                    <div class="w-[120px] h-[180px] sm:w-[290px] sm:h-[205px]">
+                    <div class="w-[120px] h-[180px] sm:w-[290px] sm:h-[405px]">
+                        <img :src="item" class="w-full h-full object-cover rounded-xl" />
+                    </div>
+
+                </template>
+            </MoleculeBodyCarousel>
+        </div>
+        <div class="new pl-4 pr-4">
+            <h2 class="text-start sm:mb-[40px]">
+                Comédia
+            </h2>
+            <MoleculeBodyCarousel :items="comedy" :swiperOptions="swiperBodyConfig">
+                <template #slide="{ item }">
+                    <div class="w-[120px] h-[180px] sm:w-[290px] sm:h-[165px]">
+                        <img :src="item" class="w-full h-full object-cover rounded-xl" />
+                    </div>
+
+                </template>
+            </MoleculeBodyCarousel>
+
+        </div>
+        
+        <div class="new pl-4 pr-4">
+            <h2 class="text-start sm:mb-[40px]">
+                Ação
+            </h2>
+            <MoleculeBodyCarousel :items="action" :swiperOptions="swiperBodyConfig">
+                <template #slide="{ item }">
+                    <div class="w-[120px] h-[180px] sm:w-[290px] sm:h-[165px]">
                         <img :src="item" class="w-full h-full object-cover rounded-xl" />
                     </div>
 

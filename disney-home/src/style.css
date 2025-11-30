@@ -16,8 +16,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --header: #202433;
+  --header: #171515;
   --body: #202332;
+  --footer: #0E0B14;
   --bg-very-dark: #05060a;        /* fundo principal */
   --bg-dark:      #0b1220;        /* fundo de seções/headers */
   --surface:      #0f1724;        /* cartões / barras */
@@ -33,6 +34,9 @@
   --soft-border:  rgba(255,255,255,0.06); /* bordas sutis */
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap");
+
+
 a {
   font-weight: 500;
   text-decoration: none;
@@ -45,6 +49,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  font-family: "Inter", sans-serif;
 }
 
 h1 {

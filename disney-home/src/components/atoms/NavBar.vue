@@ -7,7 +7,7 @@
                     <a href="#">Home</a>
                 </li>
                 <li class="flex gap-x-2">
-                    <img src="../../assets/img/icon/seach.svg" height="13" alt="">
+                    <img src="../../assets/img/icon/search.svg" height="13" alt="">
                     <a href="#">Buscar</a>
                 </li>
                 <li class="flex gap-x-2">

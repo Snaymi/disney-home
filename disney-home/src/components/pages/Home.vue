@@ -1,16 +1,29 @@
 <!-- src/pages/HomePage.vue -->
 <script setup>
-import Header from "../organisms/Header.vue";
 import "../../style.css"; // variáveis globais
-import OrganismBody from "../organisms/OrganismBody.vue";
+import {
+    OrganismBody,
+    Header,
+    Footer
+} from "../organisms"
 </script>
 
 <template>
-    <div class="bg-(--header)">
-        <Header />
+
+    <div class="bg-(--body) flex flex-col gap-y-5">
+        <div class="bg-(--header)">
+            <Header />
+        </div>
+
+        <div>
+            <OrganismBody />
+        </div>
+
+        <div class="bg-(--footer)">
+            <Footer />
+        </div>
     </div>
 
-    <OrganismBody />
 </template>
 
 <style scoped></style>

@@ -1,6 +1,6 @@
 <template>
-    <div class="header-content p-6">
-        <div class="content flex justify-between  items-center ">
+    <div class="header-content h-[50px] flex items-center justify-center sm:h-auto sm:block p-6">
+        <div class="content flex justify-between  items-center">
             <div class="w-full flex justify-center sm:justify-start gap-x-15">
                 <HeaderLeft />
                 <HeaderMiddle />

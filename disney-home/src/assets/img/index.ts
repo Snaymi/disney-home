@@ -25,6 +25,17 @@ import Msmarvel from "./msmarvel.webp"
 import Kenobi from "./kenobi.webp"
 import Duck from "./duck.webp"
 import Sneak from "./sneak.webp"
+import Cruella from "./cruella.webp"
+import Encanto from "./encanto.webp"
+import Icev from "./ice-v.webp"
+import Zack from "./zack.webp"
+import Run from "./run.webp"
+import John from "./john.webp"
+import This from "./this.webp"
+import Iron from "./iron.webp"
+import Faye from "./faye.webp"
+
+
 
 export {
     CruellaBanner,
@@ -53,5 +64,14 @@ export {
     Msmarvel,
     Duck,
     Kenobi,
-    Sneak
+    Sneak,
+    Cruella,
+    Encanto,
+    Icev,
+    Zack,
+    Run,
+    John,
+    Iron,
+    This,
+    Faye
 }

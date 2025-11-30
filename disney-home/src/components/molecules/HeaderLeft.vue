@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full sm:w-auto flex justify-center sm:block">
+    <div class="w-[65px] sm:w-auto flex justify-center sm:block">
         <Logo />
     </div>
 </template>
