@@ -90,7 +90,7 @@ const desktopConfig = {
     loop: true,
     autoplay: { delay: 3000, disableOnInteraction: false }
 };
-const Próximos = [
+const proximos = [
     Chip,
     Msmarvel,
     Duck,
@@ -136,7 +136,7 @@ const Próximos = [
         </div>
         <div class="new pl-4 pr-4">
             <h2 class="text-start sm:mb-[40px]">
-                Novos
+                Novos na Disney+
             </h2>
             <MoleculeBodyCarousel :items="newPrograms" :swiperOptions="swiperBodyConfig">
                 <template #slide="{ item }">
@@ -150,11 +150,11 @@ const Próximos = [
         </div>
         <div class="new pl-4 pr-4">
             <h2 class="text-start sm:mb-[40px]">
-                Novos
+                Próximos
             </h2>
-            <MoleculeBodyCarousel :items="comedy" :swiperOptions="swiperBodyConfig">
+            <MoleculeBodyCarousel :items="proximos" :swiperOptions="swiperBodyConfig">
                 <template #slide="{ item }">
-                    <div class="w-[120px] h-[180px] sm:w-[290px] sm:h-[165px]">
+                    <div class="w-[120px] h-[180px] sm:w-[290px] sm:h-[205px]">
                         <img :src="item" class="w-full h-full object-cover rounded-xl" />
                     </div>
 
