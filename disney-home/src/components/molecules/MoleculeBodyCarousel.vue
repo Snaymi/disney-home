@@ -3,7 +3,9 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/scrollbar";
 import "swiper/css/autoplay"
+import { ref } from "vue";
 
+const swiperInstance = ref(null);
 
 import { Scrollbar, Autoplay, FreeMode } from "swiper/modules";
 
@@ -15,7 +17,10 @@ const props = defineProps({
 
 <template>
     <div class="w-full">
-        <Swiper :modules="[Scrollbar, Autoplay, FreeMode]" v-bind="swiperOptions" class="w-full h-full">
+        <Swiper :modules="[Scrollbar, Autoplay, FreeMode]" v-bind="swiperOptions" class="w-full h-full"
+        @swiper="swiperInstance=$event"
+        @mouseenter="swiperInstance?.autoplay?.stop()"
+        @mouseleave="swiperInstance?.autoplay?.start()">
             <SwiperSlide v-for="(item, index) in items" :key="index"
                 class="!flex !justify-center !items-center bg-gray-800 text-white !w-[120px] sm:!w-[290px]">
                 <slot name="slide" :item="item" :index="index">

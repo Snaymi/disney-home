@@ -2,10 +2,12 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/autoplay";
+import { ref } from "vue";
 
 
 import { Autoplay } from "swiper/modules";
 
+const swiperInstance = ref(null);
 const props = defineProps({
     items: Array,
     swiperOptions: Object,
@@ -14,7 +16,8 @@ const props = defineProps({
 
 <template>
     <div class="w-full">
-        <Swiper :modules="[Autoplay]" v-bind="swiperOptions" class="w-full h-64">
+        <Swiper :modules="[Autoplay]" v-bind="swiperOptions" class="w-full h-64" @swiper="swiperInstance = $event"
+            @mouseenter="swiperInstance?.autoplay?.stop()" @mouseleave="swiperInstance?.autoplay?.start()">
             <SwiperSlide :modules="[Autoplay]" class="!h-[180px]" v-for="(item, index) in items" :key="index">
                 <slot name="slide" :item="item" :index="index" />
             </SwiperSlide>
