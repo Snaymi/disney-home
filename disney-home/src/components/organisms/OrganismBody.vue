@@ -99,14 +99,16 @@ const desktopConfig = {
     loop: true,
     autoplay: { delay: 3000, disableOnInteraction: false }
 };
-const proximos = [
+
+const proximos: string[] = [
     Chip,
     Msmarvel,
     Duck,
     Kenobi,
     Sneak
 ]
-const comedy = [
+
+const comedy: string[] = [
     Nate,
     Cruella,
     Encanto,
@@ -114,7 +116,8 @@ const comedy = [
     Zack,
     Chip
 ]
-const action = [
+
+const action: string[] = [
     Zack,
     Run,
     John,
@@ -122,6 +125,7 @@ const action = [
     This,
     Faye
 ]
+
 
 </script>
 

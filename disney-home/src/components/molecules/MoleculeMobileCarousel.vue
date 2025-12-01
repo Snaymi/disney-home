@@ -1,28 +1,18 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
-
 import { Pagination, FreeMode, Autoplay } from "swiper/modules";
 
-
-
-const props = defineProps({
-    items: Array,
-    swiperOptions: Object,
-});
+const props = defineProps<{
+    items: string[];
+    swiperOptions?: Record<string, any>;
+}>();
 </script>
 
 <template>
     <div class="w-full">
-        <Swiper
-            :modules="[Pagination, FreeMode, Autoplay]"
-            v-bind="swiperOptions"
-            class="w-full h-[200px]"
-        >
-            <SwiperSlide
-                v-for="(item, index) in items"
-                :key="index"
-                class="flex items-center justify-center rounded-xl overflow-hidden"
-            >
+        <Swiper :modules="[Pagination, FreeMode, Autoplay]" v-bind="props.swiperOptions" class="w-full h-[200px]">
+            <SwiperSlide v-for="(item, index) in props.items" :key="index"
+                class="flex items-center justify-center rounded-xl overflow-hidden">
                 <slot name="slide" :item="item" :index="index">
                     <img :src="item" class="w-full h-40 rounded-xl" />
                 </slot>
@@ -35,6 +25,6 @@ const props = defineProps({
 
 <style scoped>
 :deep(.swiper-pagination-bullet) {
-   display:none;
+    display: none;
 }
 </style>
