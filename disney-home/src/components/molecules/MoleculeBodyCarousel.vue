@@ -4,8 +4,9 @@ import "swiper/css";
 import "swiper/css/scrollbar";
 import "swiper/css/autoplay"
 import { ref } from "vue";
+import type { Swiper as SwiperType } from 'swiper';
 
-const swiperInstance = ref(null);
+const swiperInstance = ref<SwiperType | null>(null);
 
 import { Scrollbar, Autoplay, FreeMode } from "swiper/modules";
 

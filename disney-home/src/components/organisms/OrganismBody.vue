@@ -43,18 +43,18 @@ import {
 } from "../../assets/img";
 
 // Dados do componente
-const banners = [
+const banners: string[] = [
     CruellaBanner,
     FirstBanner,
     LastBanner
 ];
-const items = [
+const items: string[] = [
     MobileCartton,
     MobileSereia,
     NemoBanner,
     MobileSereia
 ];
-const channels = [
+const channels: string[] = [
     Star,
     Geographic,
     Pixar,
@@ -62,7 +62,7 @@ const channels = [
     StarWars,
     Disney
 ];
-const recomendation = [
+const recomendation: string[] = [
     Simpsons,
     Side,
     Moon,
@@ -70,7 +70,7 @@ const recomendation = [
     Anotomy,
     Baymax
 ]
-const newPrograms = [
+const newPrograms: string[] = [
     Nate,
     Anotomy,
     Baymax,

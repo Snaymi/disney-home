@@ -3,11 +3,11 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { ref } from "vue";
-
+import type { Swiper as SwiperType } from 'swiper';
 
 import { Autoplay } from "swiper/modules";
 
-const swiperInstance = ref(null);
+const swiperInstance = ref<SwiperType | null>(null);
 const props = defineProps({
     items: Array,
     swiperOptions: Object,
