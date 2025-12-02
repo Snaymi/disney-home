@@ -1,6 +1,7 @@
 <!-- src/organisms/OrganismHome.vue -->
 <script setup lang="ts">
 import MoleculeBigCarousel from "../molecules/MoleculeBigCarousel.vue";
+import { LoadingSpinner, AtomButtonPlay } from "../atoms";
 import { MoleculeMobileCarousel, MoleculeChannel, MoleculeBodyCarousel, MoleculeModal } from "../molecules";
 import { ref } from "vue";
 import {
@@ -47,18 +48,18 @@ import {
 
 // defina isso logo depois dos imports
 export interface MediaItem {
-  id: number;
-  title: string;
-  image: string;
-  modalImage: string;
-  year?: number;
-  duration?: string;
-  rating?: string;
-  genre?: string[];
-  description?: string;
-  tags?: string[];
+    id: number;
+    title: string;
+    image: string;
+    modalImage: string;
+    year?: number;
+    duration?: string;
+    rating?: string;
+    genre?: string[];
+    description?: string;
+    tags?: string[];
 
-  // você pode adicionar campos específicos, mas sempre opcionais
+    // você pode adicionar campos específicos, mas sempre opcionais
 }
 
 
@@ -95,7 +96,7 @@ const banners: MediaItem[] = [
 
     {
         id: 103,
-        title: "Luca",
+        title: "MsMarvel",
         image: LastBanner,
         modalImage: modalMsMarvel,
         year: 2021,
@@ -187,10 +188,19 @@ const action: string[] = [
 
 const modalOpen = ref(false);
 const modalItem = ref<MediaItem | null>(null);
-function openModal({ item, index }) {
-    modalItem.value = item; // aqui você coloca objeto depois
+const loading = ref(false);
+async function openModal({ item, index }) {
+    loading.value = true;
+    modalItem.value = null;
     modalOpen.value = true;
+
+    // simula busca de dados, imagens, etc
+    await new Promise(resolve => setTimeout(resolve, 800));
+
+    modalItem.value = item;
+    loading.value = false;
 }
+
 
 </script>
 
@@ -210,12 +220,24 @@ function openModal({ item, index }) {
                 </template>
             </MoleculeMobileCarousel>
             <MoleculeModal v-model="modalOpen">
-                <!-- Conteúdo que você quer testar -->
-                <div class="p-4 flex flex-col items-center gap-4">
-                    <h2 class="text-xl font-bold">Item clicado:</h2>
-                    <img :src="modalItem?.modalImage" class="w-[90vw] h-[80vh] rounded-xl" />
+                <div class="relative min-h-[200px] min-w-[200px] flex items-center justify-center">
+
+                    <!-- SPINNER -->
+                    <LoadingSpinner v-if="loading" />
+
+                    <!-- CONTEÚDO REAL -->
+                    <div v-else class="p-4 flex flex-col items-center gap-4">
+                        <img :src="modalItem?.modalImage"
+                            class="w-[90vw] h-[80vh] rounded-xl object-contain relative" />
+                        <AtomButtonPlay label="PLAY" :icon="PlayIcon" size="md" variant="default" />
+
+                        <p class="text-center text-sm opacity-70 absolute max-w-[90vw]">
+                            {{ modalItem?.description }}
+                        </p>
+                    </div>
                 </div>
             </MoleculeModal>
+
 
         </div>
 
