@@ -1,8 +1,8 @@
 <!-- src/organisms/OrganismHome.vue -->
 <script setup lang="ts">
 import MoleculeBigCarousel from "../molecules/MoleculeBigCarousel.vue";
-import { MoleculeMobileCarousel, MoleculeChannel, MoleculeBodyCarousel } from "../molecules";
-
+import { MoleculeMobileCarousel, MoleculeChannel, MoleculeBodyCarousel, MoleculeModal } from "../molecules";
+import { ref } from "vue";
 import {
     CruellaBanner,
     FirstBanner,
@@ -39,14 +39,73 @@ import {
     John,
     Iron,
     This,
-    Faye
+    Faye,
+    modalCruella,
+    modalSimpsons,
+    modalMsMarvel
 } from "../../assets/img";
 
+// defina isso logo depois dos imports
+export interface MediaItem {
+  id: number;
+  title: string;
+  image: string;
+  modalImage: string;
+  year?: number;
+  duration?: string;
+  rating?: string;
+  genre?: string[];
+  description?: string;
+  tags?: string[];
+
+  // você pode adicionar campos específicos, mas sempre opcionais
+}
+
+
+
 // Dados do componente
-const banners: string[] = [
-    CruellaBanner,
-    FirstBanner,
-    LastBanner
+const banners: MediaItem[] = [
+    {
+        id: 101,
+        title: "Cruella",
+        image: CruellaBanner,
+        modalImage: modalCruella,
+        year: 2021,
+        duration: "2h 14min",
+        rating: "12",
+        genre: ["Comédia", "Crime", "Drama"],
+        description:
+            "A história da jovem Estella antes de se tornar a lendária vilã Cruella de Vil. Moda, rebeldia e vingança se misturam nesta origem estilosa.",
+        tags: ["Filme", "Original Disney+", "Live-Action"],
+    },
+
+    {
+        id: 102,
+        title: "Raya e o Último Dragão",
+        image: FirstBanner,
+        modalImage: modalSimpsons,
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "Raya embarca em uma missão épica para encontrar o lendário último dragão e restaurar a paz em seu reino dividido.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
+
+    {
+        id: 103,
+        title: "Luca",
+        image: LastBanner,
+        modalImage: modalMsMarvel,
+        year: 2021,
+        duration: "1h 35min",
+        rating: "Livre",
+        genre: ["Comédia", "Fantasia", "Família"],
+        description:
+            "Luca vive um inesquecível verão italiano cheio de amizade, sorvete e segredos — como o fato de ser uma criatura marinha fora d’água.",
+        tags: ["Pixar", "Amizade", "Família"],
+    },
 ];
 const items: string[] = [
     MobileCartton,
@@ -126,15 +185,22 @@ const action: string[] = [
     Faye
 ]
 
+const modalOpen = ref(false);
+const modalItem = ref<MediaItem | null>(null);
+function openModal({ item, index }) {
+    modalItem.value = item; // aqui você coloca objeto depois
+    modalOpen.value = true;
+}
 
 </script>
 
 <template>
     <div class="bg-(--body) flex flex-col gap-y-2 sm:gap-y-3 max-w-[1350px]">
         <div class="carousel">
-            <MoleculeBigCarousel class="hidden sm:block" :items="banners" :swiperOptions="desktopConfig">
+            <MoleculeBigCarousel class="hidden sm:block" :items="banners" :swiperOptions="desktopConfig"
+                @slide-click="openModal">
                 <template #slide="{ item }">
-                    <img :src="item" class="w-full h-64 object-cover rounded-xl" alt="banner" />
+                    <img :src="item.image" class="w-full h-64 object-cover rounded-xl" alt="banner" />
                 </template>
             </MoleculeBigCarousel>
 
@@ -143,6 +209,14 @@ const action: string[] = [
                     <img :src="item" class="object-contain w-full h-full" />
                 </template>
             </MoleculeMobileCarousel>
+            <MoleculeModal v-model="modalOpen">
+                <!-- Conteúdo que você quer testar -->
+                <div class="p-4 flex flex-col items-center gap-4">
+                    <h2 class="text-xl font-bold">Item clicado:</h2>
+                    <img :src="modalItem?.modalImage" class="w-[90vw] h-[80vh] rounded-xl" />
+                </div>
+            </MoleculeModal>
+
         </div>
 
         <div class="channels lg:mt-[65px]">
@@ -204,7 +278,7 @@ const action: string[] = [
             </MoleculeBodyCarousel>
 
         </div>
-        
+
         <div class="new pl-4 pr-4">
             <h2 class="text-start sm:mb-[40px]">
                 Ação

@@ -34,8 +34,9 @@ import John from "./john.webp"
 import This from "./this.webp"
 import Iron from "./iron.webp"
 import Faye from "./faye.webp"
-
-
+import modalCruella from "./modalcruella.webp"
+import modalSimpsons from "./modalsimpsons.webp"
+import modalMsMarvel from "./modalmsmarvel.webp"
 
 export {
     CruellaBanner,
@@ -73,5 +74,9 @@ export {
     John,
     Iron,
     This,
-    Faye
+    Faye,
+    modalCruella,
+    modalSimpsons,
+    modalMsMarvel
+
 }
