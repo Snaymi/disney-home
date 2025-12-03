@@ -37,6 +37,7 @@ import Faye from "./faye.webp"
 import modalCruella from "./modalcruella.webp"
 import modalSimpsons from "./modalsimpsons.webp"
 import modalMsMarvel from "./modalmsmarvel.webp"
+import playIcon from "./icon/play.svg"
 
 export {
     CruellaBanner,
@@ -77,6 +78,7 @@ export {
     Faye,
     modalCruella,
     modalSimpsons,
-    modalMsMarvel
+    modalMsMarvel,
+    playIcon
 
 }

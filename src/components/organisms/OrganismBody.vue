@@ -43,7 +43,8 @@ import {
     Faye,
     modalCruella,
     modalSimpsons,
-    modalMsMarvel
+    modalMsMarvel,
+    playIcon
 } from "../../assets/img";
 
 // defina isso logo depois dos imports
@@ -228,10 +229,10 @@ async function openModal({ item, index }) {
                     <!-- CONTEÚDO REAL -->
                     <div v-else class="p-4 flex flex-col items-center gap-4">
                         <img :src="modalItem?.modalImage"
-                            class="w-[90vw] h-[80vh] rounded-xl object-contain relative" />
-                        <AtomButtonPlay label="PLAY" :icon="PlayIcon" size="md" variant="default" />
+                            class="w-auto h-[80vh] rounded-xl object-contain relative hover:brightness-[0.1] transition-all duration-500" />
+                        <AtomButtonPlay class="absolute cursor-pointer top-[50%] bg-white" label="PLAY" :icon="playIcon" size="md" variant="default" />
 
-                        <p class="text-center text-sm opacity-70 absolute max-w-[90vw]">
+                        <p class="text-center font-bold w-[800px] text-xl absolute top-[60%]">
                             {{ modalItem?.description }}
                         </p>
                     </div>

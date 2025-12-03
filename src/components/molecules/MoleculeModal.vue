@@ -28,7 +28,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKey));
             <div class="absolute inset-0 bg-black/60" @click="close" aria-hidden="true" />
             <!-- modal content -->
             <div role="dialog" aria-modal="true"
-                class="relative z-10 bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl p-4 sm:p-6">
+                class="relative z-10 bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl p-1">
                 <button class="absolute right-3 top-3 text-zinc-700 hover:text-black" @click="close"
                     aria-label="Fechar">
                     ✕
