@@ -53,6 +53,7 @@ export interface MediaItem {
     title: string;
     image: string;
     modalImage: string;
+    youtubeUrl?: string;
     year?: number;
     duration?: string;
     rating?: string;
@@ -72,6 +73,7 @@ const banners: MediaItem[] = [
         title: "Cruella",
         image: CruellaBanner,
         modalImage: modalCruella,
+        youtubeUrl: "https://www.youtube.com/embed/tflvpp467hc?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1",
         year: 2021,
         duration: "2h 14min",
         rating: "12",
@@ -100,6 +102,7 @@ const banners: MediaItem[] = [
         title: "MsMarvel",
         image: LastBanner,
         modalImage: modalMsMarvel,
+        youtubeUrl: "https://www.youtube.com/embed/tz9ghPTmyN4?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1",
         year: 2021,
         duration: "1h 35min",
         rating: "Livre",
@@ -190,18 +193,29 @@ const action: string[] = [
 const modalOpen = ref(false);
 const modalItem = ref<MediaItem | null>(null);
 const loading = ref(false);
-async function openModal({ item, index }) {
+const showVideo = ref(false);
+
+async function openModal({ item }) {
     loading.value = true;
+    showVideo.value = false;
     modalItem.value = null;
     modalOpen.value = true;
 
-    // simula busca de dados, imagens, etc
-    await new Promise(resolve => setTimeout(resolve, 800));
+    await new Promise(resolve => setTimeout(resolve, 1200));
 
     modalItem.value = item;
     loading.value = false;
 }
 
+function playVideo() {
+    showVideo.value = true;
+}
+
+function close() {
+    modalOpen.value = false;
+    showVideo.value = false;
+    modalItem.value = null; // limpa para não deixar vídeo rodando
+}
 
 </script>
 
@@ -225,13 +239,22 @@ async function openModal({ item, index }) {
 
                     <!-- SPINNER -->
                     <LoadingSpinner v-if="loading" />
+                    <div v-else-if="showVideo" class="w-full h-full flex justify-center items-center">
+                        <iframe :src="modalItem?.youtubeUrl" frameborder="0" class="w-[90vw] h-[90vh] rouded"
+                            allowfullscreen></iframe>
+                    </div>
+
 
                     <!-- CONTEÚDO REAL -->
                     <div v-else class="p-4 flex flex-col items-center gap-4">
                         <img :src="modalItem?.modalImage"
-                            class="w-auto h-[80vh] rounded-xl object-contain relative hover:brightness-[0.1] transition-all duration-500" />
-                        <AtomButtonPlay class="absolute cursor-pointer top-[50%] bg-white" label="PLAY" :icon="playIcon" size="md" variant="default" />
-
+                            class="w-auto h-auto rounded-xl object-contain relative hover:brightness-[0.1] transition-all duration-500" />
+                        <AtomButtonPlay class="absolute cursor-pointer top-[50%] bg-white" label="PLAY" :icon="playIcon"
+                            size="md" variant="default" @click="playVideo" />
+                        <button class="absolute right-3 top-3 text-zinc-700 hover:text-black" @click="close"
+                            aria-label="Fechar">
+                            ✕
+                        </button>
                         <p class="text-center font-bold w-[800px] text-xl absolute top-[60%]">
                             {{ modalItem?.description }}
                         </p>

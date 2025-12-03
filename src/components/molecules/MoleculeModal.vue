@@ -7,7 +7,6 @@ const props = defineProps({
 });
 const emit = defineEmits(["update:modelValue"]);
 
-const closing = ref(false);
 
 function close() {
     emit("update:modelValue", false);
@@ -29,10 +28,6 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKey));
             <!-- modal content -->
             <div role="dialog" aria-modal="true"
                 class="relative z-10 bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl p-1">
-                <button class="absolute right-3 top-3 text-zinc-700 hover:text-black" @click="close"
-                    aria-label="Fechar">
-                    ✕
-                </button>
 
                 <div>
                     <slot />
