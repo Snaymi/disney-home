@@ -14,6 +14,9 @@ const props = defineProps<{
     swiperOptions?: Record<string, any>;
 }>();
 
+const emit = defineEmits<{
+    (e: "slide-click", payload: { item: MediaItem; index: number }): void;
+}>();
 // Instância do Swiper
 const swiperInstance = ref<SwiperType | null>(null);
 </script>
@@ -24,7 +27,8 @@ const swiperInstance = ref<SwiperType | null>(null);
             @swiper="swiperInstance = $event" @mouseenter="swiperInstance?.autoplay?.stop()"
             @mouseleave="swiperInstance?.autoplay?.start()">
             <SwiperSlide v-for="(item, index) in props.items" :key="index"
-                class="!flex !justify-center !items-center bg-gray-800 text-white !w-[120px] sm:!w-[290px]">
+                class="!flex cursor-pointer  bg-gray-800 text-white !w-[120px] sm:!w-[290px]"
+                @click="emit('slide-click', { item, index })">
                 <slot name="slide" :item="item" :index="index">
                     <div class="w-full h-full flex items-center justify-center text-lg font-semibold">
                         {{ item }}

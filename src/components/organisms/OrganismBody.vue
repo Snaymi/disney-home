@@ -5,6 +5,7 @@ import { LoadingSpinner, AtomButtonPlay } from "../atoms";
 import { MoleculeMobileCarousel, MoleculeChannel, MoleculeBodyCarousel, MoleculeModal } from "../molecules";
 import { ref } from "vue";
 import {
+    modalSide,
     CruellaBanner,
     FirstBanner,
     LastBanner,
@@ -73,7 +74,7 @@ const banners: MediaItem[] = [
         title: "Cruella",
         image: CruellaBanner,
         modalImage: modalCruella,
-        youtubeUrl: "https://www.youtube.com/embed/tflvpp467hc?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1",
+        youtubeUrl: "https://www.youtube.com/embed/tflvpp467hc?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
         year: 2021,
         duration: "2h 14min",
         rating: "12",
@@ -85,9 +86,10 @@ const banners: MediaItem[] = [
 
     {
         id: 102,
-        title: "Raya e o Último Dragão",
+        title: "Simpsons",
         image: FirstBanner,
         modalImage: modalSimpsons,
+        youtubeUrl: "https://www.youtube.com/embed/7UPVGlMjPLw?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
         year: 2021,
         duration: "1h 57min",
         rating: "10",
@@ -102,7 +104,7 @@ const banners: MediaItem[] = [
         title: "MsMarvel",
         image: LastBanner,
         modalImage: modalMsMarvel,
-        youtubeUrl: "https://www.youtube.com/embed/tz9ghPTmyN4?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1",
+        youtubeUrl: "https://www.youtube.com/embed/tz9ghPTmyN4?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
         year: 2021,
         duration: "1h 35min",
         rating: "Livre",
@@ -126,13 +128,91 @@ const channels: string[] = [
     StarWars,
     Disney
 ];
-const recomendation: string[] = [
-    Simpsons,
-    Side,
-    Moon,
-    Nate,
-    Anotomy,
-    Baymax
+const recomendation: MediaItem[] = [
+    {
+        id: 104,
+        title: "Simpsons",
+        image: FirstBanner,
+        modalImage: modalSimpsons,
+        youtubeUrl: "https://www.youtube.com/embed/7UPVGlMjPLw?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "Raya embarca em uma missão épica para encontrar o lendário último dragão e restaurar a paz em seu reino dividido.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
+    {
+        id: 105,
+        title: "West Side Story",
+        image: Side,
+        modalImage: modalSide,
+        youtubeUrl: "https://www.youtube.com/embed/fytEBjr7X58?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "Raya embarca em uma missão épica para encontrar o lendário último dragão e restaurar a paz em seu reino dividido.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
+    {
+        id: 106,
+        title: "Moon",
+        image: Moon,
+        modalImage: modalSide,
+        youtubeUrl: "https://www.youtube.com/embed/fytEBjr7X58?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "Raya embarca em uma missão épica para encontrar o lendário último dragão e restaurar a paz em seu reino dividido.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
+    {
+        id: 107,
+        title: "Nate",
+        image: Nate,
+        modalImage: modalSide,
+        youtubeUrl: "https://www.youtube.com/embed/fytEBjr7X58?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "Raya embarca em uma missão épica para encontrar o lendário último dragão e restaurar a paz em seu reino dividido.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
+    {
+        id: 108,
+        title: "Anotomy",
+        image: Anotomy,
+        modalImage: modalSide,
+        youtubeUrl: "https://www.youtube.com/embed/fytEBjr7X58?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "Raya embarca em uma missão épica para encontrar o lendário último dragão e restaurar a paz em seu reino dividido.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
+    {
+        id: 110,
+        title: "Baymax",
+        image: Baymax,
+        modalImage: modalSide,
+        youtubeUrl: "https://www.youtube.com/embed/fytEBjr7X58?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "Raya embarca em uma missão épica para encontrar o lendário último dragão e restaurar a paz em seu reino dividido.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    }
 ]
 const newPrograms: string[] = [
     Nate,
@@ -201,7 +281,7 @@ async function openModal({ item }) {
     modalItem.value = null;
     modalOpen.value = true;
 
-    await new Promise(resolve => setTimeout(resolve, 1200));
+    await new Promise(resolve => setTimeout(resolve, 2000));
 
     modalItem.value = item;
     loading.value = false;
@@ -234,33 +314,7 @@ function close() {
                     <img :src="item" class="object-contain w-full h-full" />
                 </template>
             </MoleculeMobileCarousel>
-            <MoleculeModal v-model="modalOpen">
-                <div class="relative min-h-[200px] min-w-[200px] flex items-center justify-center">
 
-                    <!-- SPINNER -->
-                    <LoadingSpinner v-if="loading" />
-                    <div v-else-if="showVideo" class="w-full h-full flex justify-center items-center">
-                        <iframe :src="modalItem?.youtubeUrl" frameborder="0" class="w-[90vw] h-[90vh] rouded"
-                            allowfullscreen></iframe>
-                    </div>
-
-
-                    <!-- CONTEÚDO REAL -->
-                    <div v-else class="p-4 flex flex-col items-center gap-4">
-                        <img :src="modalItem?.modalImage"
-                            class="w-auto h-auto rounded-xl object-contain relative hover:brightness-[0.1] transition-all duration-500" />
-                        <AtomButtonPlay class="absolute cursor-pointer top-[50%] bg-white" label="PLAY" :icon="playIcon"
-                            size="md" variant="default" @click="playVideo" />
-                        <button class="absolute right-3 top-3 text-zinc-700 hover:text-black" @click="close"
-                            aria-label="Fechar">
-                            ✕
-                        </button>
-                        <p class="text-center font-bold w-[800px] text-xl absolute top-[60%]">
-                            {{ modalItem?.description }}
-                        </p>
-                    </div>
-                </div>
-            </MoleculeModal>
 
 
         </div>
@@ -273,10 +327,10 @@ function close() {
             <h2 class="text-start sm:mb-[30px]">
                 Recomendações para você
             </h2>
-            <MoleculeBodyCarousel :items="recomendation" :swiperOptions="swiperBodyConfig">
+            <MoleculeBodyCarousel @slide-click="openModal" :items="recomendation" :swiperOptions="swiperBodyConfig">
                 <template #slide="{ item }">
                     <div class="w-[120px] h-[180px] sm:w-[290px] sm:h-[165px]">
-                        <img :src="item" class="w-full h-full object-cover rounded-xl" />
+                        <img :src="item.image" class="w-full h-full object-cover rounded-xl" />
                     </div>
 
                 </template>
@@ -340,6 +394,33 @@ function close() {
 
         </div>
     </div>
+    <MoleculeModal v-model="modalOpen">
+        <div class="relative min-h-[200px] min-w-[200px] flex items-center justify-center">
+
+            <!-- SPINNER -->
+            <LoadingSpinner v-if="loading" />
+            <div v-else-if="showVideo" class="w-full h-full flex justify-center items-center">
+                <iframe :src="modalItem?.youtubeUrl" frameborder="0" class="w-[90vw] h-[90vh] rounded"
+                    allowfullscreen></iframe>
+            </div>
+
+
+            <!-- CONTEÚDO REAL -->
+            <div v-else class="p-4 flex flex-col items-center gap-4">
+                <img :src="modalItem?.modalImage"
+                    class="rounded-xl object-contain relative hover:brightness-[0.1] transition-all duration-500" />
+                <AtomButtonPlay class="absolute cursor-pointer top-[50%] bg-white" label="PLAY" :icon="playIcon"
+                    size="md" variant="default" @click="playVideo" />
+                <button class="absolute right-3 top-3 text-zinc-700 hover:text-black" @click="close"
+                    aria-label="Fechar">
+                    ✕
+                </button>
+                <p class="text-center font-bold w-[800px] text-xl absolute top-[60%]">
+                    {{ modalItem?.description }}
+                </p>
+            </div>
+        </div>
+    </MoleculeModal>
 </template>
 
 <style>

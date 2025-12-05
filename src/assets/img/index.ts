@@ -38,8 +38,10 @@ import modalCruella from "./modalcruella.webp"
 import modalSimpsons from "./modalsimpsons.webp"
 import modalMsMarvel from "./modalmsmarvel.webp"
 import playIcon from "./icon/play.svg"
+import modalSide from "./modalSide.webp"
 
 export {
+    modalSide,
     CruellaBanner,
     FirstBanner,
     LastBanner,
