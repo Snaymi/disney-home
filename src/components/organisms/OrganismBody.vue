@@ -4,6 +4,7 @@ import MoleculeBigCarousel from "../molecules/MoleculeBigCarousel.vue";
 import { LoadingSpinner, AtomButtonPlay } from "../atoms";
 import { MoleculeMobileCarousel, MoleculeChannel, MoleculeBodyCarousel, MoleculeModal } from "../molecules";
 import { ref } from "vue";
+
 import {
     modalSide,
     CruellaBanner,
@@ -48,10 +49,30 @@ import {
     playIcon,
     modalBaymax,
     modalNate,
-    modalMoon
+    modalMoon,
+    modalGray,
+    modalAlley,
+    modalEye,
+    modalChip,
+    modalJustice,
+    modalScrat,
+    modalEncanto,
+    modalRed,
+    modalUs,
+    modalIron,
+    modalKerella,
+    modalWan,
+    modalIce,
+    modalDuck,
+    modalOlivia,
+    verticalMsMarvel
 } from "../../assets/img";
+import { get } from "http";
 
-// defina isso logo depois dos imports
+
+// --------------------------------------------
+//  MEDIA ITEM TYPE
+// --------------------------------------------
 export interface MediaItem {
     id: number;
     title: string;
@@ -64,20 +85,35 @@ export interface MediaItem {
     genre?: string[];
     description?: string;
     tags?: string[];
-
-    // você pode adicionar campos específicos, mas sempre opcionais
 }
 
 
+// --------------------------------------------
+//  MEDIA STORE UNIVERSAL
+// --------------------------------------------
+const mediaStore: MediaItem[] = [];
 
-// Dados do componente
+function register(...items: MediaItem[]) {
+    mediaStore.push(...items);
+}
+
+const getMedia = (id: number) =>
+    mediaStore.find(item => item.id === id) || null;
+
+
+// --------------------------------------------
+//  BANNERS
+// --------------------------------------------
+//  BANNERS
+// --------------------------------------------
 const banners: MediaItem[] = [
     {
         id: 101,
         title: "Cruella",
         image: CruellaBanner,
         modalImage: modalCruella,
-        youtubeUrl: "https://www.youtube.com/embed/tflvpp467hc?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        youtubeUrl:
+            "https://www.youtube.com/embed/tflvpp467hc?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
         year: 2021,
         duration: "2h 14min",
         rating: "12",
@@ -92,7 +128,51 @@ const banners: MediaItem[] = [
         title: "Simpsons",
         image: FirstBanner,
         modalImage: modalSimpsons,
-        youtubeUrl: "https://www.youtube.com/embed/7UPVGlMjPLw?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        youtubeUrl:
+            "https://www.youtube.com/embed/7UPVGlMjPLw?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "Os Simpsons é uma sátira animada da vida americana, centrada na disfuncional família Simpson (Homer, Marge, Bart, Lisa e Maggie) na fictícia cidade de Springfield, abordando humor, cultura e a condição humana através das desventuras de seus personagens, especialmente o preguiçoso Homer na usina nuclear e a inteligente Lisa, enquanto satirizam a sociedade, a televisão e a família tradicional, com a série sendo um fenômeno global.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
+
+    {
+        id: 103,
+        title: "MsMarvel",
+        image: LastBanner,
+        modalImage: modalMsMarvel,
+        youtubeUrl:
+            "https://www.youtube.com/embed/tz9ghPTmyN4?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 35min",
+        rating: "Livre",
+        genre: ["Comédia", "Fantasia", "Família"],
+        description:
+            "Kamala Khan, uma adolescente muçulmana gamer e fã de super-heróis (especialmente a Capitã Marvel) de Jersey City, que se sente deslocada, mas vê sua vida mudar ao ganhar superpoderes cósmicos, tendo que equilibrar sua vida normal com sua nova identidade de heroína, tudo isso enquanto explora sua cultura e laços familiares.",
+        tags: ["Pixar", "Amizade", "Família"],
+    },
+];
+
+// registra banners
+register(...banners);
+
+
+// --------------------------------------------
+//  RECOMMENDATION
+// --------------------------------------------
+const recomendation: MediaItem[] = [
+    getMedia(102)!, //simpsons
+
+    {
+        id: 105,
+        title: "West Side Story",
+        image: Side,
+        modalImage: modalSide,
+        youtubeUrl:
+            "https://www.youtube.com/embed/fytEBjr7X58?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
         year: 2021,
         duration: "1h 57min",
         rating: "10",
@@ -103,83 +183,28 @@ const banners: MediaItem[] = [
     },
 
     {
-        id: 103,
-        title: "MsMarvel",
-        image: LastBanner,
-        modalImage: modalMsMarvel,
-        youtubeUrl: "https://www.youtube.com/embed/tz9ghPTmyN4?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
-        year: 2021,
-        duration: "1h 35min",
-        rating: "Livre",
-        genre: ["Comédia", "Fantasia", "Família"],
-        description:
-            "Luca vive um inesquecível verão italiano cheio de amizade, sorvete e segredos — como o fato de ser uma criatura marinha fora d’água.",
-        tags: ["Pixar", "Amizade", "Família"],
-    },
-];
-const items: string[] = [
-    MobileCartton,
-    MobileSereia,
-    NemoBanner,
-    MobileSereia
-];
-const channels: string[] = [
-    Star,
-    Geographic,
-    Pixar,
-    Marvel,
-    StarWars,
-    Disney
-];
-const recomendation: MediaItem[] = [
-    {
-        id: 104,
-        title: "Simpsons",
-        image: FirstBanner,
-        modalImage: modalSimpsons,
-        youtubeUrl: "https://www.youtube.com/embed/7UPVGlMjPLw?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
-        year: 2021,
-        duration: "1h 57min",
-        rating: "10",
-        genre: ["Aventura", "Fantasia", "Família"],
-        description:
-            "Raya embarca em uma missão épica para encontrar o lendário último dragão e restaurar a paz em seu reino dividido.",
-        tags: ["Animação", "Disney", "Aventura Épica"],
-    },
-    {
-        id: 105,
-        title: "West Side Story",
-        image: Side,
-        modalImage: modalSide,
-        youtubeUrl: "https://www.youtube.com/embed/fytEBjr7X58?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
-        year: 2021,
-        duration: "1h 57min",
-        rating: "10",
-        genre: ["Aventura", "Fantasia", "Família"],
-        description:
-            "Raya embarca em uma missão épica para encontrar o lendário último dragão e restaurar a paz em seu reino dividido.",
-        tags: ["Animação", "Disney", "Aventura Épica"],
-    },
-    {
         id: 106,
         title: "Moon",
         image: Moon,
         modalImage: modalMoon,
-        youtubeUrl: "https://www.youtube.com/embed/DFa0evfX96s?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        youtubeUrl:
+            "https://www.youtube.com/embed/DFa0evfX96s?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
         year: 2021,
         duration: "1h 57min",
         rating: "10",
         genre: ["Aventura", "Fantasia", "Família"],
         description:
-            "Raya embarca em uma missão épica para encontrar o lendário último dragão e restaurar a paz em seu reino dividido.",
+            "Steven Grant, um funcionário gentil com insônia, que descobre ter Transtorno Dissociativo de Identidade (TDI) e compartilha o corpo com o mercenário Marc Spector, o avatar do deus egípcio da lua, Khonshu, tornando-se o Cavaleiro da Lua. A trama segue suas jornadas confusas e perigosas enquanto lidam com inimigos e mistérios envolvendo a mitologia egípcia, questionando a realidade entre suas identidades e os eventos sobrenaturais que envolvem, como o culto de Arthur Harrow.",
         tags: ["Animação", "Disney", "Aventura Épica"],
     },
+
     {
         id: 107,
         title: "Nate",
         image: Nate,
         modalImage: modalNate,
-        youtubeUrl: "https://www.youtube.com/embed/TPP54qgzZS0?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        youtubeUrl:
+            "https://www.youtube.com/embed/TPP54qgzZS0?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
         year: 2021,
         duration: "1h 57min",
         rating: "10",
@@ -188,12 +213,14 @@ const recomendation: MediaItem[] = [
             "Nate Foster, um garoto de 13 anos apaixonado por musicais, mas completamente ignorado pela própria escola quando o assunto é talento. Nate sonha com Broadway do mesmo jeito que outros sonham com videogame novo: com brilho no olho e zero noção das probabilidades. Quando seus pais viajam e ninguém está olhando, ele e sua melhor amiga Libby bolam um plano maluco para fugir para Nova York e tentar uma audição de verdade.",
         tags: ["Animação", "Disney", "Aventura Épica"],
     },
+
     {
         id: 108,
         title: "Anotomy",
         image: Anotomy,
-        modalImage: modalSide,
-        youtubeUrl: "https://www.youtube.com/embed/A7TgB4t_6Jw?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        modalImage: modalGray,
+        youtubeUrl:
+            "https://www.youtube.com/embed/A7TgB4t_6Jw?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
         year: 2021,
         duration: "1h 57min",
         rating: "10",
@@ -202,12 +229,14 @@ const recomendation: MediaItem[] = [
             "Meredith Grey, residente (depois cirurgiã lendária) que entra no Seattle Grace Hospital e descobre que medicina é só metade da batalha; a outra metade é sobreviver ao tsunami emocional provocado por amores proibidos, dilemas éticos, perdas devastadoras e plantões que parecem universos paralelos. Entre cirurgias improváveis e amizades que viram família, a série usa o hospital como palco para examinar vulnerabilidade humana, ambição, culpa e aquilo que mantém as pessoas de pé mesmo quando o chão vive desabando.",
         tags: ["Animação", "Disney", "Aventura Épica"],
     },
+
     {
         id: 110,
         title: "Baymax",
         image: Baymax,
         modalImage: modalBaymax,
-        youtubeUrl: "https://www.youtube.com/embed/fKTzCunAsI8?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        youtubeUrl:
+            "https://www.youtube.com/embed/fKTzCunAsI8?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
         year: 2021,
         duration: "1h 57min",
         rating: "10",
@@ -215,17 +244,101 @@ const recomendation: MediaItem[] = [
         description:
             "Hiro Hamada é um jovem inventor brilhante que perde o irmão em um acidente misterioso. A única pista que sobra é um robô inflável de cuidados médicos: Baymax, uma espécie de enfermeiro gentil em forma de marshmallow tecnológico. Ao descobrir que o acidente não foi tão acidental assim, Hiro transforma sua dor em missão e, com Baymax e um grupo improvável de amigos, monta um time de heróis científicos. A jornada mistura humor, afeto e aquele tipo de aventura que deixa o coração quentinho enquanto brinca com temas de luto, amizade e responsabilidade.",
         tags: ["Animação", "Disney", "Aventura Épica"],
-    }
-]
-const newPrograms: string[] = [
-    Nate,
-    Anotomy,
-    Baymax,
-    Ice,
-    Red,
-    Allfy,
-    Olivia
-]
+    },
+];
+
+// registra recommendation
+register(...recomendation);
+
+
+// --------------------------------------------
+//  NEW PROGRAMS
+// --------------------------------------------
+const newPrograms: MediaItem[] = [
+    getMedia(107)!, // Nate
+    getMedia(110)!, // Baymax
+    getMedia(108)!, // Anatomy
+
+    {
+        id: 111,
+        title: "Era Do Gelo",
+        image: Ice,
+        modalImage: modalIce,
+        youtubeUrl:
+            "https://www.youtube.com/embed/rVQelqH7dH4?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "A Era do Gelo: As Aventuras de Buck Wild (The Ice Age Adventures of Buck Wild) é um filme derivado da franquia que foca nos gambás Crash e Eddie, que, buscando independência de Ellie, se aventuram no perigoso Mundo Perdido, um ecossistema subterrâneo de dinossauros, onde são resgatados por Buck Wild, a doninha caolha e aventureira; juntos, eles precisam enfrentar uma nova ameaça de dinossauros rebeldes para salvar o local, com foco em temas de amizade, família e individualidade.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
+
+    {
+        id: 112,
+        title: "Red",
+        image: Red,
+        modalImage: modalRed,
+        youtubeUrl:
+            "https://www.youtube.com/embed/V2Xlg8WOS-Q?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "Crescer é uma Fera conta a história de Mei, uma garota de 13 anos que se transforma em um panda-vermelho gigante toda vez que sente uma emoção forte.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
+
+    {
+        id: 113,
+        title: "Nightmare Alley",
+        image: Allfy,
+        modalImage: modalAlley,
+        youtubeUrl:
+            "https://www.youtube.com/embed/C7OIbiD8wYg?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "O ambicioso vigarista Stanton Carlisle, que tem um talento para manipular pessoas, se une a uma clarividente e seu marido mentalista para enganar um perigoso magnata com a ajuda de uma misteriosa psiquiatra, que pode ser sua maior oponente.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
+
+    {
+        id: 114,
+        title: "Olivia Rodrigo: driving home 2 u",
+        image: Olivia,
+        modalImage: modalOlivia,
+        youtubeUrl:
+            "https://www.youtube.com/embed/Ksji3ZXcu9E?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "Olivia Rodrigo: Dirigindo até Você (Disney+) foca na criação do álbum SOUR, com a cantora viajando de Salt Lake City, compartilhando memórias e emoções sobre seu sucesso e vida.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
+];
+
+
+// registra newPrograms
+register(...newPrograms);
+
+
+// --------------------------------------------
+//  IMAGENS DE OUTRAS SEÇÕES
+// --------------------------------------------
+const items = [MobileCartton, MobileSereia, NemoBanner, MobileSereia];
+const channels = [Star, Geographic, Pixar, Marvel, StarWars, Disney];
+
+
+// --------------------------------------------
+//  SWIPER CONFIGS
+// --------------------------------------------
 const swiperConfig = {
     slidesPerView: 1.2,
     centeredSlides: true,
@@ -247,23 +360,110 @@ const desktopConfig = {
     autoplay: { delay: 3000, disableOnInteraction: false }
 };
 
-const proximos: string[] = [
-    Chip,
-    Msmarvel,
-    Duck,
-    Kenobi,
-    Sneak
-]
+const proximos: MediaItem[] = [
 
-const comedy: string[] = [
-    Nate,
-    Cruella,
-    Encanto,
+    {
+        id: 115,
+        title: "CHIP",
+        image: Chip,
+        modalImage: modalChip,
+        youtubeUrl:
+            "https://www.youtube.com/embed/oYyjB7eROPg?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "Tico e Teco vivem entre desenhos animados e humanos na Los Angeles moderna, mas suas vidas são bem diferentes agora. Um dia, um ex-colega de elenco desaparece misteriosamente, então a dupla precisa reparar sua amizade quebrada e salvar o amigo.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
+    {
+        id: 116,
+        title: "Duck",
+        image: Duck,
+        modalImage: modalDuck,
+        youtubeUrl:
+            "https://www.youtube.com/embed/lcpCapjKT9I?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "DuckTales (ou DuckTales: Os Caçadores de Aventuras) acompanha o Tio Patinhas, o pato mais rico do mundo, que, após o Pato Donald se juntar à Marinha, assume a guarda de seus sobrinhos trigêmeos Huguinho, Zezinho e Luizinho, embarcando com eles em emocionantes aventuras globais em busca de tesouros lendários e para proteger sua vasta fortuna dos vilões, especialmente os Irmãos Metralha e o MacMônei. ",
+        tags: ["Animação", "Disney", "Aventura Épica"]
+    },
+    {
+        id: 119,
+        title: "MsMarvel",
+        image: verticalMsMarvel,
+        modalImage: modalMsMarvel,
+        youtubeUrl:
+            "https://www.youtube.com/embed/tz9ghPTmyN4?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 35min",
+        rating: "Livre",
+        genre: ["Comédia", "Fantasia", "Família"],
+        description:
+            "Kamala Khan, uma adolescente muçulmana gamer e fã de super-heróis (especialmente a Capitã Marvel) de Jersey City, que se sente deslocada, mas vê sua vida mudar ao ganhar superpoderes cósmicos, tendo que equilibrar sua vida normal com sua nova identidade de heroína, tudo isso enquanto explora sua cultura e laços familiares.",
+        tags: ["Pixar", "Amizade", "Família"],
+    },
+    {
+        id: 117,
+        title: "Kenobi - Wan",
+        image: Kenobi,
+        modalImage: modalWan,
+        youtubeUrl:
+            "https://www.youtube.com/embed/YseHkkLPzjs?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "Obi-Wan Kenobi (Disney+) foca no exílio do Mestre Jedi Obi-Wan Kenobi em Tatooine, uma década após a queda de Anakin Skywalker para o Lado Sombrio, transformando-o em Darth Vader, com a missão de proteger um jovem Luke Skywalker enquanto lida com a perseguição do Império e confronta seu passado, enfrentando inimigos e a própria culpa, numa jornada que o reconecta à Força e ao destino da galáxia.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
+
+    {
+        id: 118,
+        title: "CHERELLA - KERELLA",
+        image: Sneak,
+        modalImage: modalKerella,
+        youtubeUrl:
+            "https://www.youtube.com/embed/Qgg_11ISxu8?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "Em meio à inovadora cultura de rua de Nova York, 'Os Tênis Encantados' é um filme repleto de adrenalina e música que traz uma versão contemporânea do conto de fadas 'Cinderela'. El é um aspirante a designer de tênis que trabalha no estoque da loja de calçados da sua falecida mãe. Ele esconde seu talento artístico do padrasto e de dois meios-irmãos mesquinhos, que sempre estragam qualquer oportunidade que aparece para ele. Até que El conhece Kira King, a filha independente de Darius King, lenda do basquete e magnata dos tênis. Com o incentivo da melhor amiga e um toque de magia, El cria coragem para usar seu talento e correr atrás do sonho de virar um designer de verdade no ramo dos tênis. Contém sequências de luzes que podem afetar pessoas fotossensíveis.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    }
+]
+register(...proximos);
+
+const comedy: MediaItem[] = [
+    getMedia(107)!, // Nate
+    getMedia(101)!, // West Side Story
+    getMedia(115)!, // CHIP
+    {
+        id: 114,
+        title: "Encanto",
+        image: Encanto,
+        modalImage: modalEncanto,
+        youtubeUrl:
+            "https://www.youtube.com/embed/Ksji3ZXcu9E?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "Olivia Rodrigo: Dirigindo até Você (Disney+) foca na criação do álbum SOUR, com a cantora viajando de Salt Lake City, compartilhando memórias e emoções sobre seu sucesso e vida.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
     Icev,
     Zack,
-    Chip
-]
 
+]
 const action: string[] = [
     Zack,
     Run,
@@ -273,21 +473,36 @@ const action: string[] = [
     Faye
 ]
 
+
+// --------------------------------------------
+//  MODAL LOGIC
+// --------------------------------------------
 const modalOpen = ref(false);
 const modalItem = ref<MediaItem | null>(null);
 const loading = ref(false);
 const showVideo = ref(false);
 
-async function openModal({ item }) {
+function onImageLoaded() {
+    loading.value = false;
+}
+
+async function openModal(params) {
+    const functionItem = params.item;
     loading.value = true;
     showVideo.value = false;
     modalItem.value = null;
     modalOpen.value = true;
 
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    modalItem.value = functionItem;
 
-    modalItem.value = item;
-    loading.value = false;
+    const img = new Image();
+    img.src = functionItem.modalImage;
+
+    img.onload = () => loading.value = false;
+    img.onerror = () => {
+        console.error("Erro ao carregar a imagem do modal.");
+        loading.value = false;
+    };
 }
 
 function playVideo() {
@@ -297,10 +512,10 @@ function playVideo() {
 function close() {
     modalOpen.value = false;
     showVideo.value = false;
-    modalItem.value = null; // limpa para não deixar vídeo rodando
+    modalItem.value = null;
 }
-
 </script>
+
 
 <template>
     <div class="bg-(--body) flex flex-col gap-y-2 sm:gap-y-3 max-w-[1350px]">
@@ -344,10 +559,10 @@ function close() {
             <h2 class="text-start sm:mb-[40px]">
                 Novos na Disney+
             </h2>
-            <MoleculeBodyCarousel :items="newPrograms" :swiperOptions="swiperBodyConfig">
+            <MoleculeBodyCarousel :items="newPrograms" @slide-click="openModal" :swiperOptions="swiperBodyConfig">
                 <template #slide="{ item }">
                     <div class="w-[120px] h-[180px] sm:w-[290px] sm:h-[165px]">
-                        <img :src="item" class="w-full h-full object-cover rounded-xl" />
+                        <img :src="item.image" class="w-full h-full object-cover rounded-xl" />
                     </div>
 
                 </template>
@@ -358,10 +573,10 @@ function close() {
             <h2 class="text-start sm:mb-[40px]">
                 Próximos
             </h2>
-            <MoleculeBodyCarousel :items="proximos" :swiperOptions="swiperBodyConfig">
+            <MoleculeBodyCarousel :items="proximos" @slide-click="openModal" :swiperOptions="swiperBodyConfig">
                 <template #slide="{ item }">
                     <div class="w-[120px] h-[180px] sm:w-[290px] sm:h-[405px]">
-                        <img :src="item" class="w-full h-full object-cover rounded-xl" />
+                        <img :src="item.image" class="w-full h-full object-cover rounded-xl" />
                     </div>
 
                 </template>
@@ -371,10 +586,10 @@ function close() {
             <h2 class="text-start sm:mb-[40px]">
                 Comédia
             </h2>
-            <MoleculeBodyCarousel :items="comedy" :swiperOptions="swiperBodyConfig">
+            <MoleculeBodyCarousel :items="comedy" :swiperOptions="swiperBodyConfig" @slide-click="openModal">
                 <template #slide="{ item }">
                     <div class="w-[120px] h-[180px] sm:w-[290px] sm:h-[165px]">
-                        <img :src="item" class="w-full h-full object-cover rounded-xl" />
+                        <img :src="item.image" class="w-full h-full object-cover rounded-xl" />
                     </div>
 
                 </template>
@@ -411,7 +626,7 @@ function close() {
             <!-- CONTEÚDO REAL -->
             <div v-else class="p-4 flex flex-col items-center gap-4 justify-center">
                 <img :src="modalItem?.modalImage"
-                    class="rounded-xl object-contain relative hover:brightness-[0.1] transition-all duration-500 max-h-[80vh] " />
+                    class="rounded-xl object-contain relative hover:brightness-[0.1] transition-all duration-500 max-h-[80vh]" />
                 <AtomButtonPlay class="absolute cursor-pointer top-[50%] bg-white" label="PLAY" :icon="playIcon"
                     size="md" variant="default" @click="playVideo" />
                 <button class="absolute right-3 top-3 text-zinc-700 hover:text-black" @click="close"

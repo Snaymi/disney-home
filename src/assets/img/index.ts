@@ -42,6 +42,28 @@ import modalSide from "./modalSide.webp"
 import modalBaymax from "./modalBaymax.webp"
 import modalNate from "./modalNate.webp"
 import modalMoon from "./modalMoon.webp"
+import modalGray from "./modalGray.webp"
+import modalEye from "./modalEye.webp"
+import modalRed from "./modalRed.webp"
+import modalUs from "./modalUs.webp"
+import modalIron from "./modalIron.webp"
+import modalJustice from "./modalJustice.webp"
+import modalScrat from "./modalScrat.webp"
+import modalEncanto from "./modalEncanto.webp"
+import modalChip from "./modalChip.webp"
+import modalDuck from "./modalDuck.webp"
+import modalKerella from "./modalKerella.webp"
+import modalWan from "./modalWan.webp"
+import modalOlivia from "./modalOlivia.webp"
+import modalAlley from "./modalAlley.webp"
+import modalIce from "./modalIce.webp"
+import verticalMsMarvel from "./vercalbanner.webp"
+
+
+
+
+
+
 export {
     modalMoon,
     modalNate,
@@ -86,6 +108,21 @@ export {
     modalCruella,
     modalSimpsons,
     modalMsMarvel,
-    playIcon
-
+    playIcon,
+    modalGray,
+    modalEye,
+    modalRed,
+    modalUs,
+    modalIron,
+    modalJustice,
+    modalScrat,
+    modalEncanto,
+    modalChip,
+    modalDuck,
+    modalKerella,
+    modalWan,
+    modalOlivia,
+    modalAlley,
+    modalIce,
+    verticalMsMarvel
 }
