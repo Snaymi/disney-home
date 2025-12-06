@@ -39,8 +39,13 @@ import modalSimpsons from "./modalsimpsons.webp"
 import modalMsMarvel from "./modalmsmarvel.webp"
 import playIcon from "./icon/play.svg"
 import modalSide from "./modalSide.webp"
-
+import modalBaymax from "./modalBaymax.webp"
+import modalNate from "./modalNate.webp"
+import modalMoon from "./modalMoon.webp"
 export {
+    modalMoon,
+    modalNate,
+    modalBaymax,
     modalSide,
     CruellaBanner,
     FirstBanner,

@@ -45,7 +45,10 @@ import {
     modalCruella,
     modalSimpsons,
     modalMsMarvel,
-    playIcon
+    playIcon,
+    modalBaymax,
+    modalNate,
+    modalMoon
 } from "../../assets/img";
 
 // defina isso logo depois dos imports
@@ -161,8 +164,8 @@ const recomendation: MediaItem[] = [
         id: 106,
         title: "Moon",
         image: Moon,
-        modalImage: modalSide,
-        youtubeUrl: "https://www.youtube.com/embed/fytEBjr7X58?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        modalImage: modalMoon,
+        youtubeUrl: "https://www.youtube.com/embed/DFa0evfX96s?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
         year: 2021,
         duration: "1h 57min",
         rating: "10",
@@ -175,14 +178,14 @@ const recomendation: MediaItem[] = [
         id: 107,
         title: "Nate",
         image: Nate,
-        modalImage: modalSide,
-        youtubeUrl: "https://www.youtube.com/embed/fytEBjr7X58?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        modalImage: modalNate,
+        youtubeUrl: "https://www.youtube.com/embed/TPP54qgzZS0?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
         year: 2021,
         duration: "1h 57min",
         rating: "10",
         genre: ["Aventura", "Fantasia", "Família"],
         description:
-            "Raya embarca em uma missão épica para encontrar o lendário último dragão e restaurar a paz em seu reino dividido.",
+            "Nate Foster, um garoto de 13 anos apaixonado por musicais, mas completamente ignorado pela própria escola quando o assunto é talento. Nate sonha com Broadway do mesmo jeito que outros sonham com videogame novo: com brilho no olho e zero noção das probabilidades. Quando seus pais viajam e ninguém está olhando, ele e sua melhor amiga Libby bolam um plano maluco para fugir para Nova York e tentar uma audição de verdade.",
         tags: ["Animação", "Disney", "Aventura Épica"],
     },
     {
@@ -190,27 +193,27 @@ const recomendation: MediaItem[] = [
         title: "Anotomy",
         image: Anotomy,
         modalImage: modalSide,
-        youtubeUrl: "https://www.youtube.com/embed/fytEBjr7X58?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        youtubeUrl: "https://www.youtube.com/embed/A7TgB4t_6Jw?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
         year: 2021,
         duration: "1h 57min",
         rating: "10",
         genre: ["Aventura", "Fantasia", "Família"],
         description:
-            "Raya embarca em uma missão épica para encontrar o lendário último dragão e restaurar a paz em seu reino dividido.",
+            "Meredith Grey, residente (depois cirurgiã lendária) que entra no Seattle Grace Hospital e descobre que medicina é só metade da batalha; a outra metade é sobreviver ao tsunami emocional provocado por amores proibidos, dilemas éticos, perdas devastadoras e plantões que parecem universos paralelos. Entre cirurgias improváveis e amizades que viram família, a série usa o hospital como palco para examinar vulnerabilidade humana, ambição, culpa e aquilo que mantém as pessoas de pé mesmo quando o chão vive desabando.",
         tags: ["Animação", "Disney", "Aventura Épica"],
     },
     {
         id: 110,
         title: "Baymax",
         image: Baymax,
-        modalImage: modalSide,
-        youtubeUrl: "https://www.youtube.com/embed/fytEBjr7X58?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        modalImage: modalBaymax,
+        youtubeUrl: "https://www.youtube.com/embed/fKTzCunAsI8?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
         year: 2021,
         duration: "1h 57min",
         rating: "10",
         genre: ["Aventura", "Fantasia", "Família"],
         description:
-            "Raya embarca em uma missão épica para encontrar o lendário último dragão e restaurar a paz em seu reino dividido.",
+            "Hiro Hamada é um jovem inventor brilhante que perde o irmão em um acidente misterioso. A única pista que sobra é um robô inflável de cuidados médicos: Baymax, uma espécie de enfermeiro gentil em forma de marshmallow tecnológico. Ao descobrir que o acidente não foi tão acidental assim, Hiro transforma sua dor em missão e, com Baymax e um grupo improvável de amigos, monta um time de heróis científicos. A jornada mistura humor, afeto e aquele tipo de aventura que deixa o coração quentinho enquanto brinca com temas de luto, amizade e responsabilidade.",
         tags: ["Animação", "Disney", "Aventura Épica"],
     }
 ]
@@ -406,16 +409,16 @@ function close() {
 
 
             <!-- CONTEÚDO REAL -->
-            <div v-else class="p-4 flex flex-col items-center gap-4">
+            <div v-else class="p-4 flex flex-col items-center gap-4 justify-center">
                 <img :src="modalItem?.modalImage"
-                    class="rounded-xl object-contain relative hover:brightness-[0.1] transition-all duration-500" />
+                    class="rounded-xl object-contain relative hover:brightness-[0.1] transition-all duration-500 max-h-[80vh] " />
                 <AtomButtonPlay class="absolute cursor-pointer top-[50%] bg-white" label="PLAY" :icon="playIcon"
                     size="md" variant="default" @click="playVideo" />
                 <button class="absolute right-3 top-3 text-zinc-700 hover:text-black" @click="close"
                     aria-label="Fechar">
                     ✕
                 </button>
-                <p class="text-center font-bold w-[800px] text-xl absolute top-[60%]">
+                <p class="text-center font-bold w-[800px] text-base absolute top-[60%]">
                     {{ modalItem?.description }}
                 </p>
             </div>
