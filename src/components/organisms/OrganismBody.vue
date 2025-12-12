@@ -65,7 +65,12 @@ import {
     modalIce,
     modalDuck,
     modalOlivia,
-    verticalMsMarvel
+    verticalMsMarvel,
+    modalParallels,
+    modalJhon,
+    modalSereia,
+    modalCoco,
+    modalNemo
 } from "../../assets/img";
 import { get } from "http";
 
@@ -226,7 +231,7 @@ const recomendation: MediaItem[] = [
         rating: "10",
         genre: ["Aventura", "Fantasia", "Família"],
         description:
-            "Meredith Grey, residente (depois cirurgiã lendária) que entra no Seattle Grace Hospital e descobre que medicina é só metade da batalha; a outra metade é sobreviver ao tsunami emocional provocado por amores proibidos, dilemas éticos, perdas devastadoras e plantões que parecem universos paralelos. Entre cirurgias improváveis e amizades que viram família, a série usa o hospital como palco para examinar vulnerabilidade humana, ambição, culpa e aquilo que mantém as pessoas de pé mesmo quando o chão vive desabando.",
+            "Meredith Grey, residente (depois cirurgiã lendária) que entra no Seattle Grace Hospital e descobre que medicina é só metade da batalha; a outra metade é sobreviver ao tsunami emocional provocado por amores proibidos, dilemas éticos, perdas devastadoras e plantões que parecem universos paralelos.",
         tags: ["Animação", "Disney", "Aventura Épica"],
     },
 
@@ -242,7 +247,7 @@ const recomendation: MediaItem[] = [
         rating: "10",
         genre: ["Aventura", "Fantasia", "Família"],
         description:
-            "Hiro Hamada é um jovem inventor brilhante que perde o irmão em um acidente misterioso. A única pista que sobra é um robô inflável de cuidados médicos: Baymax, uma espécie de enfermeiro gentil em forma de marshmallow tecnológico. Ao descobrir que o acidente não foi tão acidental assim, Hiro transforma sua dor em missão e, com Baymax e um grupo improvável de amigos, monta um time de heróis científicos. A jornada mistura humor, afeto e aquele tipo de aventura que deixa o coração quentinho enquanto brinca com temas de luto, amizade e responsabilidade.",
+            "Hiro Hamada é um jovem inventor brilhante que perde o irmão em um acidente misterioso. A única pista que sobra é um robô inflável de cuidados médicos: Baymax, uma espécie de enfermeiro gentil em forma de marshmallow tecnológico.",
         tags: ["Animação", "Disney", "Aventura Épica"],
     },
 ];
@@ -332,10 +337,55 @@ register(...newPrograms);
 // --------------------------------------------
 //  IMAGENS DE OUTRAS SEÇÕES
 // --------------------------------------------
-const items = [MobileCartton, MobileSereia, NemoBanner, MobileSereia];
+
 const channels = [Star, Geographic, Pixar, Marvel, StarWars, Disney];
 
-
+const items: MediaItem[] = [
+    {
+        id: 130,
+        title: "Sereia",
+        image: MobileSereia,
+        modalImage: modalSereia,
+        youtubeUrl:
+            "https://www.youtube.com/embed/kpGo2_d3oYE?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "A Pequena Sereia (Disney): Ariel, filha do Rei Tritão, é fascinada pelo mundo humano e se apaixona pelo Príncipe Eric. Ela troca sua voz com a bruxa Úrsula por pernas para viver na terra, mas precisa conquistar o amor do príncipe em três dias para permanecer humana, senão perderá sua alma.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
+    {
+        id: 132,
+        title: "Cartoon",
+        image: MobileCartton,
+        modalImage: modalCoco,
+        youtubeUrl:
+            "https://www.youtube.com/embed/kpGo2_d3oYE?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "Coco (ou Viva - A Vida é uma Festa no Brasil) da Disney•Pixar conta a história de Miguel, um menino de 12 anos com um sonho de ser músico, apesar de sua família ter banido a música por gerações; numa aventura no mágico Mundo dos Mortos durante o Dia dos Mortos.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
+ {
+        id: 133,
+        title: "Nemo",
+        image: NemoBanner,
+        modalImage: modalNemo,
+        youtubeUrl:
+            "https://www.youtube.com/embed/lJhvtAt_1Nk?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "Em seu primeiro dia de aula, Nemo é capturado por um mergulhador e acaba no aquário de um dentista. Enquanto ele tenta bolar um plano para escapar, seu pai cruza o oceano para resgatá-lo",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    }];
 // --------------------------------------------
 //  SWIPER CONFIGS
 // --------------------------------------------
@@ -435,7 +485,7 @@ const proximos: MediaItem[] = [
         rating: "10",
         genre: ["Aventura", "Fantasia", "Família"],
         description:
-            "Em meio à inovadora cultura de rua de Nova York, 'Os Tênis Encantados' é um filme repleto de adrenalina e música que traz uma versão contemporânea do conto de fadas 'Cinderela'. El é um aspirante a designer de tênis que trabalha no estoque da loja de calçados da sua falecida mãe. Ele esconde seu talento artístico do padrasto e de dois meios-irmãos mesquinhos, que sempre estragam qualquer oportunidade que aparece para ele. Até que El conhece Kira King, a filha independente de Darius King, lenda do basquete e magnata dos tênis. Com o incentivo da melhor amiga e um toque de magia, El cria coragem para usar seu talento e correr atrás do sonho de virar um designer de verdade no ramo dos tênis. Contém sequências de luzes que podem afetar pessoas fotossensíveis.",
+            "Em meio à inovadora cultura de rua de Nova York, 'Os Tênis Encantados' é um filme repleto de adrenalina e música que traz uma versão contemporânea do conto de fadas 'Cinderela'. El é um aspirante a designer de tênis que trabalha no estoque da loja de calçados da sua falecida mãe. Ele esconde seu talento artístico do padrasto e de dois meios-irmãos mesquinhos, que sempre estragam qualquer oportunidade que aparece para ele.",
         tags: ["Animação", "Disney", "Aventura Épica"],
     }
 ]
@@ -475,7 +525,7 @@ const comedy: MediaItem[] = [
             "Vinte mil anos atrás, num mundo coberto de gelo, o mamute Manfred e a preguiça Sid resgatam um bebê humano órfão. Agora, os dois vão enfrentar muitas aventuras até devolver o filhote de gente à sua tribo, que migrou para um novo acampamento.",
         tags: ["Animação", "Disney", "Aventura Épica"],
     },
-     {
+    {
         id: 121,
         title: "Liga da Justiça",
         image: Zack,
@@ -498,24 +548,81 @@ const action: MediaItem[] = [
     getMedia(121)!,//liga da justiça
     {
         id: 121,
-        title: "Maze Runner",
+        title: "Parallels",
         image: Run,
-        modalImage: modalRun,
+        modalImage: modalParallels,
         youtubeUrl:
-            "https://www.youtube.com/embed/BZUm2lpPoKM?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+            "https://www.youtube.com/embed/ksy3ZbTzMBA?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
         year: 2021,
         duration: "1h 57min",
         rating: "10",
         genre: ["Aventura", "Fantasia", "Família"],
         description:
-            "Impulsionado pela restauração de sua fé na humanidade e inspirado pelo ato altruísta do Superman, Bruce Wayne convoca sua nova aliada Diana Prince para o combate contra um inimigo ainda maior, recém-despertado. Juntos, Batman e Mulher-Maravilha buscam e recrutam com agilidade um time de meta-humanos, mas mesmo com a formação da liga de heróis sem precedentes, pode ser tarde demais para salvar o planeta de um catastrófico ataque.",
+            "As vidas dos amigos Bilal, Romane, Sam e Victor, que vivem em uma tranquila vila na fronteira franco-suíça, são drasticamente alteradas quando um experimento em um grande colisor de partículas (semelhante ao LHC) dá errado. Um estranho fenômeno espaço-temporal ocorre, separando o grupo e lançando cada um deles em diferentes dimensões e linhas do tempo paralelas",
         tags: ["Animação", "Disney", "Aventura Épica"],
     },
-    John,
-    Iron,
-    This,
-    Faye
+    {
+        id: 122,
+        title: "John Wick",
+        image: John,
+        modalImage: modalJhon,
+        youtubeUrl:
+            "https://www.youtube.com/embed/C0BMx-qxsP4?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "John Wick (Keanu Reeves), um lendário assassino aposentado que lida com o luto pela perda da esposa, até que criminosos invadem sua casa, roubam seu carro e matam seu cachorro (o último presente dela), forçando-o a voltar à ativa para uma vingança brutal contra a máfia russa, desencadeando uma onda de ação intensa e coreografada",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
+    {
+        id: 123,
+        title: "Iron Man",
+        image: Iron,
+        modalImage: modalIron,
+        youtubeUrl:
+            "https://www.youtube.com/embed/8ugaeA-nMTc?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "Tony Stark é um industrial bilionário e inventor brilhante que realiza testes bélicos no exterior, mas é sequestrado por terroristas que o forçam a construir uma arma devastadora. Em vez disso, ele constrói uma armadura blindada e enfrenta seus sequestradores. Quando volta aos Estados Unidos, Stark aprimora a armadura e a utiliza para combater o crime.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
+    {
+        id: 124,
+        title: "This is Us",
+        image: This,
+        modalImage: modalUs,
+        youtubeUrl:
+            "https://www.youtube.com/embed/GH0027vqr80?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "This Is Us é uma série emocionante que acompanha a família Pearson ao longo de décadas, entrelaçando as vidas dos pais, Jack e Rebecca, com as de seus três filhos adultos – Kevin, Kate e Randall – explorando suas lutas, amores, perdas e o impacto do passado no presente, mostrando como suas histórias se conectam de formas inesperadas.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
+    {
+        id: 125,
+        title: "Tammy Faye",
+        image: Faye,
+        modalImage: modalEye,
+        youtubeUrl:
+            "https://www.youtube.com/embed/eMMLRnXPPJk?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "O filme retrata a história real de Tammy Faye (interpretada por Jessica Chastain, que ganhou o Oscar de Melhor Atriz pelo papel) e seu marido, Jim Bakker (Andrew Garfield), que, nas décadas de 1970 e 1980, transformaram suas origens humildes na maior rede de radiodifusão religiosa do mundo e em um parque temático cristão",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    }
 ]
+register(...action);
 
 
 // --------------------------------------------
@@ -571,9 +678,9 @@ function close() {
                 </template>
             </MoleculeBigCarousel>
 
-            <MoleculeMobileCarousel class="sm:hidden" :items="items" :swiperOptions="swiperConfig">
+            <MoleculeMobileCarousel class="sm:hidden" :items="items" :swiperOptions="swiperConfig" @slide-click="openModal">
                 <template #slide="{ item }">
-                    <img :src="item" class="object-contain w-full h-full" />
+                    <img :src="item.image" class="object-contain w-full h-full" />
                 </template>
             </MoleculeMobileCarousel>
 
@@ -645,10 +752,10 @@ function close() {
             <h2 class="text-start sm:mb-[40px]">
                 Ação
             </h2>
-            <MoleculeBodyCarousel :items="action" :swiperOptions="swiperBodyConfig">
+            <MoleculeBodyCarousel :items="action" :swiperOptions="swiperBodyConfig" @slide-click="openModal">
                 <template #slide="{ item }">
                     <div class="w-[120px] h-[180px] sm:w-[290px] sm:h-[165px]">
-                        <img :src="item" class="w-full h-full object-cover rounded-xl" />
+                        <img :src="item.image" class="w-full h-full object-cover rounded-xl" />
                     </div>
 
                 </template>
@@ -668,16 +775,16 @@ function close() {
 
 
             <!-- CONTEÚDO REAL -->
-            <div v-else class="p-4 flex flex-col items-center gap-4 justify-center">
+            <div v-else class=" p-1 sm:p-4 flex flex-col items-center gap-4 justify-center">
                 <img :src="modalItem?.modalImage"
-                    class="rounded-xl object-contain relative hover:brightness-[0.1] transition-all duration-500 max-h-[80vh]" />
-                <AtomButtonPlay class="absolute cursor-pointer top-[50%] bg-white" label="PLAY" :icon="playIcon"
+                    class="rounded-xl object-contain relative hover:brightness-[0.1] transition-all duration-500 -[80vh]" />
+                <AtomButtonPlay class="absolute cursor-pointer bottom-[5%] sm:top-[50%] bg-white" label="PLAY" :icon="playIcon"
                     size="md" variant="default" @click="playVideo" />
                 <button class="absolute right-3 top-3 text-zinc-700 hover:text-black" @click="close"
                     aria-label="Fechar">
                     ✕
                 </button>
-                <p class="text-center font-bold w-[800px] text-base absolute top-[60%]">
+                <p class="text-center font-bold max-w-[800px] text-xs sm:text-base absolute sm:top-[60%] p-3 sm:p-1">
                     {{ modalItem?.description }}
                 </p>
             </div>

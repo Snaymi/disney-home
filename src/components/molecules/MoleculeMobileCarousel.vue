@@ -2,9 +2,13 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, FreeMode, Autoplay } from "swiper/modules";
 
+
 const props = defineProps<{
-    items: string[];
+    items: MediaItem[];
     swiperOptions?: Record<string, any>;
+}>();
+const emit = defineEmits<{
+    (e: "slide-click", payload: { item: MediaItem; index: number }): void;
 }>();
 </script>
 
@@ -12,7 +16,8 @@ const props = defineProps<{
     <div class="w-full">
         <Swiper :modules="[Pagination, FreeMode, Autoplay]" v-bind="props.swiperOptions" class="w-full h-[200px]">
             <SwiperSlide v-for="(item, index) in props.items" :key="index"
-                class="flex items-center justify-center rounded-xl overflow-hidden">
+                class="flex items-center justify-center rounded-xl overflow-hidden"
+                @click="emit('slide-click', { item, index })">
                 <slot name="slide" :item="item" :index="index">
                     <img :src="item" class="w-full h-40 rounded-xl" />
                 </slot>

@@ -58,13 +58,19 @@ import modalOlivia from "./modalOlivia.webp"
 import modalAlley from "./modalAlley.webp"
 import modalIce from "./modalIce.webp"
 import verticalMsMarvel from "./vercalbanner.webp"
-
-
-
-
+import modalParallels from "./modalParallels.webp"
+import modalJhon from "./modalJonhWick.webp"
+import modalSereia from "./modalSereia.webp"
+import modalCoco from "./modalCoco.webp"
+import modalNemo from "./modalNemo.webp"
 
 
 export {
+    modalNemo,
+    modalCoco,
+    modalSereia,
+    modalParallels,
+    modalJhon,
     modalMoon,
     modalNate,
     modalBaymax,
