@@ -460,13 +460,57 @@ const comedy: MediaItem[] = [
             "Olivia Rodrigo: Dirigindo até Você (Disney+) foca na criação do álbum SOUR, com a cantora viajando de Salt Lake City, compartilhando memórias e emoções sobre seu sucesso e vida.",
         tags: ["Animação", "Disney", "Aventura Épica"],
     },
-    Icev,
-    Zack,
+    {
+        id: 120,
+        title: "Era do Gelo",
+        image: Icev,
+        modalImage: modalIce,
+        youtubeUrl:
+            "https://www.youtube.com/embed/rVQelqH7dH4?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "Vinte mil anos atrás, num mundo coberto de gelo, o mamute Manfred e a preguiça Sid resgatam um bebê humano órfão. Agora, os dois vão enfrentar muitas aventuras até devolver o filhote de gente à sua tribo, que migrou para um novo acampamento.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
+     {
+        id: 121,
+        title: "Liga da Justiça",
+        image: Zack,
+        modalImage: modalJustice,
+        youtubeUrl:
+            "https://www.youtube.com/embed/BZUm2lpPoKM?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "Impulsionado pela restauração de sua fé na humanidade e inspirado pelo ato altruísta do Superman, Bruce Wayne convoca sua nova aliada Diana Prince para o combate contra um inimigo ainda maior, recém-despertado. Juntos, Batman e Mulher-Maravilha buscam e recrutam com agilidade um time de meta-humanos, mas mesmo com a formação da liga de heróis sem precedentes, pode ser tarde demais para salvar o planeta de um catastrófico ataque.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
 
 ]
-const action: string[] = [
-    Zack,
-    Run,
+register(...comedy);
+
+const action: MediaItem[] = [
+    getMedia(121)!,//liga da justiça
+    {
+        id: 121,
+        title: "Maze Runner",
+        image: Run,
+        modalImage: modalRun,
+        youtubeUrl:
+            "https://www.youtube.com/embed/BZUm2lpPoKM?controls=1&modestbranding=1&rel=0&showinfo=0&playsinline=1&autoplay=1&mute=1",
+        year: 2021,
+        duration: "1h 57min",
+        rating: "10",
+        genre: ["Aventura", "Fantasia", "Família"],
+        description:
+            "Impulsionado pela restauração de sua fé na humanidade e inspirado pelo ato altruísta do Superman, Bruce Wayne convoca sua nova aliada Diana Prince para o combate contra um inimigo ainda maior, recém-despertado. Juntos, Batman e Mulher-Maravilha buscam e recrutam com agilidade um time de meta-humanos, mas mesmo com a formação da liga de heróis sem precedentes, pode ser tarde demais para salvar o planeta de um catastrófico ataque.",
+        tags: ["Animação", "Disney", "Aventura Épica"],
+    },
     John,
     Iron,
     This,
