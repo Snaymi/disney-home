@@ -140,7 +140,7 @@ const banners: MediaItem[] = [
         rating: "10",
         genre: ["Aventura", "Fantasia", "Família"],
         description:
-            "Os Simpsons é uma sátira animada da vida americana, centrada na disfuncional família Simpson (Homer, Marge, Bart, Lisa e Maggie) na fictícia cidade de Springfield, abordando humor, cultura e a condição humana através das desventuras de seus personagens, especialmente o preguiçoso Homer na usina nuclear e a inteligente Lisa, enquanto satirizam a sociedade, a televisão e a família tradicional, com a série sendo um fenômeno global.",
+            "Os Simpsons é uma sátira animada da vida americana, centrada na disfuncional família Simpson (Homer, Marge, Bart, Lisa e Maggie) na fictícia cidade de Springfield, abordando humor, cultura e a condição humana através das desventuras de seus personagens.",
         tags: ["Animação", "Disney", "Aventura Épica"],
     },
 
@@ -199,7 +199,7 @@ const recomendation: MediaItem[] = [
         rating: "10",
         genre: ["Aventura", "Fantasia", "Família"],
         description:
-            "Steven Grant, um funcionário gentil com insônia, que descobre ter Transtorno Dissociativo de Identidade (TDI) e compartilha o corpo com o mercenário Marc Spector, o avatar do deus egípcio da lua, Khonshu, tornando-se o Cavaleiro da Lua. A trama segue suas jornadas confusas e perigosas enquanto lidam com inimigos e mistérios envolvendo a mitologia egípcia, questionando a realidade entre suas identidades e os eventos sobrenaturais que envolvem, como o culto de Arthur Harrow.",
+            "Steven Grant, um funcionário gentil com insônia, que descobre ter Transtorno Dissociativo de Identidade (TDI) e compartilha o corpo com o mercenário Marc Spector",
         tags: ["Animação", "Disney", "Aventura Épica"],
     },
 
@@ -537,7 +537,7 @@ const comedy: MediaItem[] = [
         rating: "10",
         genre: ["Aventura", "Fantasia", "Família"],
         description:
-            "Impulsionado pela restauração de sua fé na humanidade e inspirado pelo ato altruísta do Superman, Bruce Wayne convoca sua nova aliada Diana Prince para o combate contra um inimigo ainda maior, recém-despertado. Juntos, Batman e Mulher-Maravilha buscam e recrutam com agilidade um time de meta-humanos, mas mesmo com a formação da liga de heróis sem precedentes, pode ser tarde demais para salvar o planeta de um catastrófico ataque.",
+            "Impulsionado pela restauração de sua fé na humanidade e inspirado pelo ato altruísta do Superman, Bruce Wayne convoca sua nova aliada Diana Prince para o combate contra um inimigo ainda maior, recém-despertado.",
         tags: ["Animação", "Disney", "Aventura Épica"],
     },
 
@@ -777,8 +777,8 @@ function close() {
             <!-- CONTEÚDO REAL -->
             <div v-else class=" p-1 sm:p-4 flex flex-col items-center gap-4 justify-center">
                 <img :src="modalItem?.modalImage"
-                    class="rounded-xl object-contain relative hover:brightness-[0.1] transition-all duration-500 -[80vh]" />
-                <AtomButtonPlay class="absolute cursor-pointer bottom-[5%] sm:top-[50%] bg-white" label="PLAY" :icon="playIcon"
+                    class="rounded-xl object-contain relative hover:brightness-[0.1] transition-all duration-500 sm:h-[80vh]" />
+                <AtomButtonPlay class="absolute cursor-pointer top-[75%] sm:top-[50%] bg-white" label="PLAY" :icon="playIcon"
                     size="md" variant="default" @click="playVideo" />
                 <button class="absolute right-3 top-3 text-zinc-700 hover:text-black" @click="close"
                     aria-label="Fechar">
